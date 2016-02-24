@@ -4,6 +4,7 @@ Raspberry Pi Controlled LED Terrarium
 Set the Timezone on your Raspberry Pi with 'sudo raspi-config' command. Defaults to UTC
 
 Requirements:
-  pigpio
-  ephem (requires python-dev (sudo apt-get python-dev))
+pigpio
+ephem (requires python-dev (sudo apt-get python-dev))
+am2302_rpi (pip install am2302_rpi)
   
