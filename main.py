@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-import time, sys, pigpio, config, ephem, timezone
+import time, datetime, sys, pigpio, config, ephem
+import Adafruit_DHT
 
 
 class Main():
@@ -12,48 +13,87 @@ class Main():
         # pigpio daemon is required for accurate PWM timing
         self.pi = pigpio.pi()
 
+        print "Initializing Temp/Humidity sensor"
+        # Sensor should be set to Adafruit_DHT.DHT11,
+        # Adafruit_DHT.DHT22, or Adafruit_DHT.AM2302.
+        self.s = config.sensor
 
-        self._get_sunrise_sunset()
 
-
-
-        while True:
-            self._run()
-            time.sleep(2)
-
-        self.pi.stop()
+        try:
+            while True:
+                self._run()
+                time.sleep(60)
+        except:
+            self.pi.stop()
 
     def _get_sunrise_sunset(self):
-        print "Loading Todays Sunrise and Sunset times"
+        print "Calculating today's sunrise and sunset times"
         o=ephem.Observer()
         o.lat = config.latitude
         o.long = config.longitude
-        # Civil Horizon
-        o.horizon = -6
+        #o.date = datetime.datetime.utcnow()
+        #o.date = ephem.localtime(ephem.now())
         s = ephem.Sun()
         s.compute()
 
+        #self.sunrise = o.next_rising(s)
+        #self.sunset = o.next_setting(s)
+
+        self.sunrise = ephem.localtime(o.next_rising(s))
+        self.sunset = ephem.localtime(o.next_setting(s))
+
+        print "Date: " , ephem.localtime(o.date)
         print "Latitude: %s, Longitude: %s" % (o.lat, o.long)
-        print "Sunrise: %s" % ephem.localtime(o.next_rising(s))
-        print "Sunset: %s" % ephem.localtime(o.next_setting(s))
+        print "Sunrise: %s" % self.sunrise
+        print "Sunset: %s" % self.sunset
+
+        self.islight = self.sunrise > self.sunset
+
+    def _get_temp_and_humidity(self):
+        self.humidity, self.temperature = Adafruit_DHT.read_retry(self.s, config.th_channel)
+
+        if self.temperature is not None:
+            print 'Raw Temperature: {0:0.1f}*C'.format(self.temperature)
+
+            if config.temp_adjustment != 0:
+                self.temperature += config.temp_adjustment
+                print 'Adjusted Temperature: {0:0.1f}*C'.format(self.temperature)
+        else:
+            print 'Temperature: not available'
+
+        if self.humidity is not None:
+            print 'Humidity: {0:.2f}%'.format(self.humidity)
+        else:
+            print 'Humidity: not available'
+
 
     def _run(self):
-        print "Running"
 
+        self._get_sunrise_sunset()
+        self._get_temp_and_humidity()
 
+        print "Updating Light Show: ", datetime.datetime.now()
+        if self.islight:
+            print "Currently it's light"
+            self._set_rgb_led(r=25, g=75, b=0)
+            self._set_white_led(w=25)
+
+        else:
+            print "Currently it's Dark"
+            self._set_rgb_led(r=0, g=20, b=20)
+            self._set_white_led(w=0)
+        print ''
+        sys.stdout.flush()
 
 
     def _set_rgb_led(self, r=0, g=0, b=0):
-        pi.set_PWM_dutycycle(config.r_channel, self._percentage_to_pigpio(r))
-        pi.set_PWM_dutycycle(config.g_channel, self._percentage_to_pigpio(g))
-        pi.set_PWM_dutycycle(config.b_channel, self._percentage_to_pigpio(b))
+        self.pi.set_PWM_dutycycle(config.r_channel, r)
+        self.pi.set_PWM_dutycycle(config.g_channel, g)
+        self.pi.set_PWM_dutycycle(config.b_channel, b)
 
     def _set_white_led(self, w=0):
-        pi.set_PWM_dutycycle(config.w_channel, self._percentage_to_pigpio(w))
+        self.pi.set_PWM_dutycycle(config.w_channel, w)
 
-    def _percentage_to_pigpio(self, p=0):
-        # 100% = 255
-        return p * 2.5
 
 #        time.sleep(2)
 
