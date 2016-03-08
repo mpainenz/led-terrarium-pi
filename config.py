@@ -14,7 +14,7 @@ sensor = Adafruit_DHT.AM2302
 
 # Optionally specify an amount in Degrees to adjust the output temperature by.
 # Useful if the sensor is slightly out, which is not uncommon
-temp_adjustment = -2.0
+temp_adjustment = 0
 
 # GPIO Channel for Temperature & Humidity Sensor
 th_channel = 23
