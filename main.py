@@ -5,7 +5,7 @@ import Adafruit_DHT
 class Main():
 
     DEMO_MODE = False # Fast forward mode
-    DEMO_SPEED = 60 #1 sec = x sec
+    DEMO_SPEED = 600 #1 sec = x sec
 
     demo_time = None # Used instead of current time when in Demo mode
 
@@ -14,7 +14,6 @@ class Main():
     # Date/Time of Sunrise/Sunset
     sunrise = None
     sunset = None
-
 
     # {-3600,      0,      0,      0},
     # {-3000,      0,      0,    200}, // Dark blue
@@ -72,7 +71,8 @@ class Main():
 
             print "Calculating sunrise and sunset times"
             o = ephem.Observer()
-            o.date = now
+            if self.DEMO_MODE:
+                o.date = now - (datetime.datetime.now() - datetime.datetime.utcnow()) # ephem uses UTC Time
             o.lat = config.latitude
             o.long = config.longitude
             s = ephem.Sun()
@@ -81,7 +81,8 @@ class Main():
             self.sunrise = ephem.localtime(o.next_rising(s))
             self.sunset = ephem.localtime(o.next_setting(s))
 
-            #print "Date: " , ephem.localtime(o.date)
+            print "Date: " , ephem.localtime(o.date)
+
             print "Latitude: %s" % o.lat
             print "Longitude: %s" % o.long
             print "Sunrise: %s" % self._timestamp(self.sunrise)
