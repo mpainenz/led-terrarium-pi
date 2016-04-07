@@ -35,21 +35,21 @@ longitude = "174.74"
 
 
 # RGBW Value to use during Day
-day_colour = (0, 75, 0, 25)
+day_colour = [0, 75, 0, 25]
 
 # RGBW Value to use during Night
-night_colour = (0, 20, 20, 0)
+night_colour = [0, 20, 20, 0]
 
 
 # Sunset/Sunrise RGB & White LED Colour values over time
 #             Time (Seconds)    R,  G,  B,  W
 sunrise_colour_map = {  3600: night_colour,
-                        3000: (  0, 20,100,  3),   #Blue
-                        2400: ( 20, 40, 20,  3),
-                        1800: ( 40, 40, 10,  0),   # Sun begins to rise
-                        1500: ( 80, 30,  5,  5),
-                        1200: ( 90, 60,  0, 10),   # Yellowish
-                         900: ( 60, 75,  0, 15),   # White
+                        3000: [  0, 20,100,  3],   #Blue
+                        2400: [ 20, 40, 20,  3],
+                        1800: [ 40, 40, 10,  0],   # Sun begins to rise
+                        1500: [ 80, 30,  5,  5],
+                        1200: [ 90, 60,  0, 10],   # Yellowish
+                         900: [ 60, 75,  0, 15],   # White
                            0: day_colour }     # Bright white
 
 

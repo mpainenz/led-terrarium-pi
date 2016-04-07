@@ -60,7 +60,7 @@ class Main():
         if not config.DEMO_MODE:
             if self._get_temp_and_humidity():
                 self._save_to_db(self.temperature, self.humidity)
-                self._update_graphs()
+                #self._update_graphs()
         self._update_lighting(now)
         print ''
         sys.stdout.flush()
@@ -112,50 +112,49 @@ class Main():
             v = delta - start_delta
             return (v / diff) * 100
 
+        def blend_colours(start_colour, end_colour, blend_percentage):
+            blended_colour = [0, 0, 0, 0]
+            for i in range(0, 3):
+                diff = end_colour[i] - start_colour[i]
+                if diff > 0:
+                    blended_colour[i] = start_colour[i] + ((diff / 100) * blend_percentage)
+                else:
+                    blended_colour[i] = start_colour[i]
+            return blended_colour
 
-        self.islight = self.sunrise > self.sunset
+        is_light = self.sunrise > self.sunset
 
-        blending_required = False
-        if self.islight:
+        if is_light:
             effective_colour = config.day_colour
-
+            current_phase, next_phase = 'day', 'sunset'
             delta = (self.sunset - now).total_seconds()
-            start_delta, start_colour = get_start_colour_from_map(delta, config.sunrise_colour_map)
-            if start_delta is not None:
-                blending_required = True
-                effective_colour = list(start_colour)
-                end_delta, end_colour = get_end_colour_from_map(delta, config.sunrise_colour_map)
-            else:
-                print "Currently it's daytime, %f seconds until sunset starts" % delta
+            colour_map = config.sunrise_colour_map
 
         else:
             effective_colour = config.night_colour
+            current_phase, next_phase = 'night', 'sunrise'
             delta = (self.sunrise - now).total_seconds()
-            start_delta, start_colour = get_start_colour_from_map(delta, config.sunrise_colour_map)
-            if start_delta is not None:
-                blending_required = True
-                effective_colour = start_colour
-                end_delta, end_colour = get_end_colour_from_map(delta, config.sunrise_colour_map)
-            else:
-                print "Currently it's Dark, %f seconds until sunrise" % delta
+            colour_map = config.sunrise_colour_map
+
+        print "Currently ", current_phase
+
+        start_delta, start_colour = get_start_colour_from_map(delta, colour_map)
+        if start_delta is not None:
+            blending_required = True
+            effective_colour = start_colour
+            end_delta, end_colour = get_end_colour_from_map(delta, colour_map)
+        else:
+            blending_required = False
+            end_delta = None
+            print "%s in %d seconds" % (next_phase, delta)
 
         if blending_required:
             blend_percentage = get_blend_percentage(delta, start_delta, end_delta)
+            effective_colour = blend_colours(start_colour, end_colour, blend_percentage)
 
-            def blend_colour(start_value, end_value, blend_percentage):
-                diff = end_value - start_value
-                if diff > 0:
-                    return start_value + ((diff / 100) * blend_percentage)
-                else:
-                    return start_value
-
-            effective_colour = list(effective_colour)
-            effective_colour[0] = blend_colour(start_colour[0], end_colour[0], blend_percentage)
-            effective_colour[1] = blend_colour(start_colour[1], end_colour[1], blend_percentage)
-            effective_colour[2] = blend_colour(start_colour[2], end_colour[2], blend_percentage)
-            effective_colour[3] = blend_colour(start_colour[3], end_colour[3], blend_percentage)
-
-
+        print "Current Delta: ", delta
+        print "Start Delta: ", start_delta
+        print "End Delta: ", end_delta
 
         self._set_rgb_led(r=effective_colour[0], g=effective_colour[1], b=effective_colour[2])
         self._set_white_led(w=effective_colour[3])
