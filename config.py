@@ -2,7 +2,7 @@ import Adafruit_DHT
 
 # Set to true to run through Sunrise colours in Demo mode
 DEMO_MODE = False # Fast forward mode
-DEMO_SPEED = 100 #1 sec = x sec
+DEMO_SPEED = 10 #1 sec = x sec
 
 # GPIO Channel for RGB LED Strip
 r_channel = 25
@@ -35,27 +35,38 @@ longitude = "174.74"
 
 
 # RGBW Value to use during Day
-day_colour = [0, 75, 0, 25]
+day_colour = [75, 255, 0, 180]
 
 # RGBW Value to use during Night
-night_colour = [0, 20, 20, 0]
+night_colour = [0, 30, 20, 5]
 
 
 # Sunset/Sunrise RGB & White LED Colour values over time
 #             Time (Seconds)    R,  G,  B,  W
 sunrise_colour_map = {  3600: night_colour,
-                        3000: [  0, 20,100,  3],   #Blue
-                        2400: [ 20, 40, 20,  3],
-                        1800: [ 40, 40, 10,  0],   # Sun begins to rise
-                        1500: [ 80, 30,  5,  5],
-                        1200: [ 90, 60,  0, 10],   # Yellowish
-                         900: [ 60, 75,  0, 15],   # White
+                        3000: [  0,  50, 100,  50],  #Dim Blue
+                        2400: [100,  30,  30,  75],  #Neutral
+                        1800: [255,   0,   0, 100],  #Very Red
+                        1500: [255, 100,   0, 140],  #Sepia dimmer
+                        1200: [255, 200,   0, 180],  #Sepia Light
+                         900: [ 75, 255,   0, 180],  #Warmer Daylight
                            0: day_colour }     # Bright white
+
+
+sunset_colour_map = {   3600: day_colour,
+                        3000: [ 75, 255,   0, 180],  #Warmer Daylight
+                        2400: [255, 200,   0, 180],  #Sepia Light
+                        1800: [255, 100,   0, 140],  #Sepia dimmer
+                        1500: [255,   0,   0, 100],  #Very Red
+                        1200: [100,  30,  30,  75],  #Neutral
+                         900: [  0,  50, 100,  50],  #Dim Blue
+                           0: night_colour }
+
 
 
 
 # SQL Database (Optional)
-enable_db = True
+ENABLE_DB = True
 db_dialect_driver = 'mysql' # See http://docs.sqlalchemy.org/en/latest/core/engines.html
 db_name = 'terrarium'
 db_user = 'root'

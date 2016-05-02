@@ -3,7 +3,7 @@ from sqlalchemy import create_engine, Column, DateTime, Float
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-if not config.DEMO_MODE and config.enable_db:
+if not config.DEMO_MODE and config.ENABLE_DB:
 
     print "Initializing Database"
 

@@ -1,8 +1,12 @@
 #!/usr/bin/env python
+from __future__ import division
+
 import config, database
 import time, datetime, sys, pigpio, ephem
 import Adafruit_DHT
 import pygal
+import argparse
+
 
 class Main():
 
@@ -19,12 +23,28 @@ class Main():
     sunset = None
 
     def __init__(self):
+        # Parse Aruments
+        parser = argparse.ArgumentParser(description='Service to control LED Lighting in a Terrarium')
+        parser.add_argument("r", nargs='?', default=0)
+        parser.add_argument("g", nargs='?', default=0)
+        parser.add_argument("b", nargs='?', default=0)
+        parser.add_argument("w", nargs='?', default=0)
+        args = parser.parse_args()
+
         print "Starting Auto LED Controller"
         self.start_time = time.time()
 
         print "Initializing connection to pigpio daemon"
         # pigpio daemon is required for accurate PWM timing
         self.pi = pigpio.pi()
+
+        if any(x > 0 for x in (args.r, args.g, args.b, args.w)):
+            self._set_rgb_led(r=args.r, g=args.g, b=args.b)
+            self._set_white_led(w=args.w)
+            time.sleep(0.5)
+            self.pi.stop()
+            #time.sleep(3)
+            sys.exit(0)
 
         print "Initializing Temp/Humidity sensor"
         # Sensor should be set to Adafruit_DHT.DHT11,
@@ -101,25 +121,33 @@ class Main():
 
         def get_end_colour_from_map(delta, colour_map):
             for d, c in colour_map.iteritems():
-                if delta < d:
+                if delta > d:
                     return d, c
             return None, None
 
         def get_blend_percentage(delta, start_delta, end_delta):
             diff = start_delta - end_delta
+            #print "Diff: ", diff
             if diff == 0:
                 return 0
-            v = delta - start_delta
+            v = start_delta - delta
+            #print "Value: ", v
             return (v / diff) * 100
 
         def blend_colours(start_colour, end_colour, blend_percentage):
             blended_colour = [0, 0, 0, 0]
-            for i in range(0, 3):
+            for i in range(4):
                 diff = end_colour[i] - start_colour[i]
-                if diff > 0:
-                    blended_colour[i] = start_colour[i] + ((diff / 100) * blend_percentage)
+                print "diff: ", diff
+                if diff != 0:
+                    test = diff / 100
+                    print "test: ", test
+                    blend_shift = ((diff / 100) * blend_percentage)
+                    print "Blend Shift: ", blend_shift
+                    blended_colour[i] = start_colour[i] + blend_shift
                 else:
                     blended_colour[i] = start_colour[i]
+            print "Blend Test: ", blended_colour
             return blended_colour
 
         is_light = self.sunrise > self.sunset
@@ -128,7 +156,7 @@ class Main():
             effective_colour = config.day_colour
             current_phase, next_phase = 'day', 'sunset'
             delta = (self.sunset - now).total_seconds()
-            colour_map = config.sunrise_colour_map
+            colour_map = config.sunset_colour_map
 
         else:
             effective_colour = config.night_colour
@@ -152,9 +180,17 @@ class Main():
             blend_percentage = get_blend_percentage(delta, start_delta, end_delta)
             effective_colour = blend_colours(start_colour, end_colour, blend_percentage)
 
+            print "Blend Percentage: ", blend_percentage
+            print "Start Colour: ", start_colour
+            print "End Colour: ", end_colour
+        else:
+            blend_percentage = 0
+
         print "Current Delta: ", delta
         print "Start Delta: ", start_delta
         print "End Delta: ", end_delta
+
+        print "Effective Colour: ", effective_colour
 
         self._set_rgb_led(r=effective_colour[0], g=effective_colour[1], b=effective_colour[2])
         self._set_white_led(w=effective_colour[3])
