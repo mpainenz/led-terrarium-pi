@@ -19,6 +19,7 @@ class Main():
     humidity = None
 
     # Date/Time of Sunrise/Sunset
+    last_sunrise = None
     sunrise = None
     sunset = None
 
@@ -93,6 +94,7 @@ class Main():
 
             print "Calculating sunrise and sunset times"
             o = ephem.Observer()
+            o.horizon = -6 #http://rhodesmill.org/pyephem/rise-set.html#naval-observatory-risings-and-settings
             if config.DEMO_MODE:
                 o.date = now - (datetime.datetime.now() - datetime.datetime.utcnow()) # ephem uses UTC Time
             o.lat = config.latitude
@@ -100,6 +102,7 @@ class Main():
             s = ephem.Sun()
             s.compute()
 
+            self.last_sunrise = ephem.localtime(o.previous_rising(s))
             self.sunrise = ephem.localtime(o.next_rising(s))
             self.sunset = ephem.localtime(o.next_setting(s))
 
@@ -153,6 +156,10 @@ class Main():
         is_light = self.sunrise > self.sunset
 
         if is_light:
+
+
+
+
             effective_colour = config.day_colour
             current_phase, next_phase = 'day', 'sunset'
             delta = (self.sunset - now).total_seconds()
@@ -185,6 +192,41 @@ class Main():
             print "End Colour: ", end_colour
         else:
             blend_percentage = 0
+
+
+        # if is_light:
+        #     effective_colour = config.day_colour
+        #     current_phase, next_phase = 'day', 'sunset'
+        #     delta = (self.sunset - now).total_seconds()
+        #     colour_map = config.sunset_colour_map
+        #
+        # else:
+        #     effective_colour = config.night_colour
+        #     current_phase, next_phase = 'night', 'sunrise'
+        #     delta = (self.sunrise - now).total_seconds()
+        #     colour_map = config.sunrise_colour_map
+        #
+        # print "Currently ", current_phase
+        #
+        # start_delta, start_colour = get_start_colour_from_map(delta, colour_map)
+        # if start_delta is not None:
+        #     blending_required = True
+        #     effective_colour = start_colour
+        #     end_delta, end_colour = get_end_colour_from_map(delta, colour_map)
+        # else:
+        #     blending_required = False
+        #     end_delta = None
+        #     print "%s in %d seconds" % (next_phase, delta)
+        #
+        # if blending_required:
+        #     blend_percentage = get_blend_percentage(delta, start_delta, end_delta)
+        #     effective_colour = blend_colours(start_colour, end_colour, blend_percentage)
+        #
+        #     print "Blend Percentage: ", blend_percentage
+        #     print "Start Colour: ", start_colour
+        #     print "End Colour: ", end_colour
+        # else:
+        #     blend_percentage = 0
 
         print "Current Delta: ", delta
         print "Start Delta: ", start_delta
@@ -231,9 +273,8 @@ class Main():
         else:
             print 'Temperature/Humidity not available'
 
-
-
         return None not in (self.temperature, self.humidity)
+
 
     def _save_to_db(self, temperature, humidity):
         print "Saving to DB"
@@ -255,7 +296,6 @@ class Main():
         temps = []
         humidities = []
         dates = []
-
 
         # Get Todays Graph
         start_of_day = datetime.datetime.now()
