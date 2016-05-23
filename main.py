@@ -19,7 +19,7 @@ class Main():
     humidity = None
 
     # Date/Time of Sunrise/Sunset
-    last_sunrise = None
+    previous_sunrise = None
     sunrise = None
     sunset = None
 
@@ -94,7 +94,7 @@ class Main():
 
             print "Calculating sunrise and sunset times"
             o = ephem.Observer()
-            o.horizon = -6 #http://rhodesmill.org/pyephem/rise-set.html#naval-observatory-risings-and-settings
+            #o.horizon = -6 #http://rhodesmill.org/pyephem/rise-set.html#naval-observatory-risings-and-settings
             if config.DEMO_MODE:
                 o.date = now - (datetime.datetime.now() - datetime.datetime.utcnow()) # ephem uses UTC Time
             o.lat = config.latitude
@@ -102,7 +102,14 @@ class Main():
             s = ephem.Sun()
             s.compute()
 
-            self.last_sunrise = ephem.localtime(o.previous_rising(s))
+
+            try:
+                self.last_sunrise = ephem.localtime(o.previous_rising(s))
+            except (ephem.AlwaysUpError, ephem.NeverUpError):
+                print 'got that damn error'
+                pass
+
+
             self.sunrise = ephem.localtime(o.next_rising(s))
             self.sunset = ephem.localtime(o.next_setting(s))
 
@@ -110,8 +117,9 @@ class Main():
 
             print "Latitude: %s" % o.lat
             print "Longitude: %s" % o.long
-            print "Sunrise: %s" % self._timestamp(self.sunrise)
-            print "Sunset: %s" % self._timestamp(self.sunset)
+            print "Previous Sunrise: %s" % self._timestamp(self.previous_sunrise)
+            print "Next Sunrise: %s" % self._timestamp(self.sunrise)
+            print "Next Sunset: %s" % self._timestamp(self.sunset)
 
     def _update_lighting(self, now):
 

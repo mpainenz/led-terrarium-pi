@@ -35,7 +35,7 @@ longitude = "174.74"
 
 
 # RGBW Value to use during Day
-day_colour = [75, 255, 0, 180]
+day_colour = [75, 255, 0, 100]
 
 # RGBW Value to use during Night
 night_colour = [0, 30, 20, 5]
@@ -44,22 +44,22 @@ night_colour = [0, 30, 20, 5]
 # Sunset/Sunrise RGB & White LED Colour values over time
 #             Time (Seconds)    R,  G,  B,  W
 sunrise_colour_map = {  3600: night_colour,
-                        3000: [  0,  50, 100,  50],  #Dim Blue
-                        2400: [100,  30,  30,  75],  #Neutral
-                        1800: [255,   0,   0, 100],  #Very Red
-                        1500: [255, 100,   0, 140],  #Sepia dimmer
-                        1200: [255, 200,   0, 180],  #Sepia Light
-                         900: [ 75, 255,   0, 180],  #Warmer Daylight
+                        3000: [  0,  50, 100,  15],  #Dim Blue
+                        2400: [100,  30,  30,  30],  #Neutral
+                        1800: [255,   0,   0, 60],  #Very Red
+                        1500: [255, 100,   0, 80],  #Sepia dimmer
+                        1200: [255, 200,   0, 100],  #Sepia Light
+                         900: [ 75, 255,   0, 100],  #Warmer Daylight
                            0: day_colour }     # Bright white
 
 
 sunset_colour_map = {   3600: day_colour,
-                        3000: [ 75, 255,   0, 180],  #Warmer Daylight
-                        2400: [255, 200,   0, 180],  #Sepia Light
-                        1800: [255, 100,   0, 140],  #Sepia dimmer
-                        1500: [255,   0,   0, 100],  #Very Red
-                        1200: [100,  30,  30,  75],  #Neutral
-                         900: [  0,  50, 100,  50],  #Dim Blue
+                        3000: [ 75, 255,   0, 100],  #Warmer Daylight
+                        2400: [255, 200,   0, 100],  #Sepia Light
+                        1800: [255, 100,   0,  80],  #Sepia dimmer
+                        1500: [255,   0,   0,  60],  #Very Red
+                        1200: [100,  30,  30,  30],  #Neutral
+                         900: [  0,  50, 100,  15],  #Dim Blue
                            0: night_colour }
 
 
