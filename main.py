@@ -59,8 +59,9 @@ class Main():
             # Go to the start of Sunset
             self.demo_time = self.sunrise - datetime.timedelta(0, config.sunrise_colour_map.keys()[0])
         else:
-            print "Building DB if required"
-            database.build_tables()
+            if config.ENABLE_DB:
+                print "Building DB if required"
+                database.build_tables()
 
         #try:
         while True:
@@ -80,7 +81,8 @@ class Main():
         self._get_sunrise_sunset(now)
         if not config.DEMO_MODE:
             if self._get_temp_and_humidity():
-                self._save_to_db(self.temperature, self.humidity)
+                if config.ENABLE_DB:
+                    self._save_to_db(self.temperature, self.humidity)
                 #self._update_graphs()
         self._update_lighting(now)
         print ''

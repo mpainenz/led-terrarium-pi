@@ -66,7 +66,7 @@ sunset_colour_map = {   3600: day_colour,
 
 
 # SQL Database (Optional)
-ENABLE_DB = True
+ENABLE_DB = False
 db_dialect_driver = 'mysql' # See http://docs.sqlalchemy.org/en/latest/core/engines.html
 db_name = 'terrarium'
 db_user = 'root'
