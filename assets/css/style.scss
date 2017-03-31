@@ -2,3 +2,9 @@
 ---
 
 @import "{{ site.theme }}";
+
+.page-header {
+  background-image: url(/led-terrarium-pi/assets/img/header.png);
+  background-position: center;
+  background-repeat: no-repeat;
+}
