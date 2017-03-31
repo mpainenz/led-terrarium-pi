@@ -4,5 +4,6 @@
 @import "{{ site.theme }}";
 
 .page-header {
-  background-image: url(/led-terrarium-pi/assets/img/header.png) bottom center; 
+  background-image: url(/led-terrarium-pi/assets/img/header.png);
+  backgroun-position: center;
 }
