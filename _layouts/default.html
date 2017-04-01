@@ -60,29 +60,4 @@
     {% endif %}
   </body>
   
-  $(document).ready(function() {
-      function imageresize() {
-          var contentwidth = $(window).width();
-        if ((contentwidth) < '700'){
-            $('.fluidimage').each(function(){
-                var thisImg = $(this);
-                var newSrc = thisImg.attr('src').replace('x2', 'x1');
-                thisImg.attr('src', newSrc);
-            });
-        } else {
-            $('.fluidimage').each(function(){
-                var thisImg = $(this);
-                var newSrc = thisImg.attr('src').replace('x1', 'x2');
-                thisImg.attr('src', newSrc);
-            });
-        }
-    }
-
-    imageresize();//Triggers when document first loads
-
-    $(window).bind("resize", function(){//Adjusts image when browser resized
-        imageresize();
-    });
- }); 
-  
 </html>
