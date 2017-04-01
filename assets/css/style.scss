@@ -20,10 +20,21 @@
   top: 50px;
 }
 
+
 .site-logo-small {
   position: absolute;
   left: calc(50% - 400px);
   top: 50px;
+}
+
+@media screen and (max-width: 42em) { 
+  .site-logo { display: none; } 
+  .site-logo-small { display: inline; } 
+}
+
+@media screen and (min-width: 42em) { 
+  .site-logo { display: inline; } 
+  .site-logo-small { display: none; } 
 }
 
 .raspberry-pi-logo {
