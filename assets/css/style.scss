@@ -12,9 +12,13 @@
 }
 
 .site-logo {
-  position: relative;
+  position: absolute;
+  left: calc(50% - 300px);
 }
 
 .raspberry-pi-logo {
   height: 48px;
+  position: absolute;
+  left: calc(50% + 115px);
+  top: 234px;
 }
