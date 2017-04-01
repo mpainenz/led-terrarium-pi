@@ -23,18 +23,20 @@
 
 .site-logo-small {
   position: absolute;
-  left: calc(50% - 400px);
+  left: calc(50% - 200px);
   top: 50px;
 }
 
 @media screen and (max-width: 42em) { 
   .site-logo { display: none; } 
   .site-logo-small { display: inline; } 
+  .page-header { padding: 4rem 6rem; }
 }
 
 @media screen and (min-width: 42em) { 
   .site-logo { display: inline; } 
   .site-logo-small { display: none; } 
+  .page-header { padding: 8rem 6rem; }
 }
 
 .raspberry-pi-logo {
