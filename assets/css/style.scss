@@ -5,9 +5,11 @@
 
 .page-header {
   #background-image: url(/led-terrarium-pi/assets/img/header.png);
-  background-position: calc(50% + 220px) -120px;
-  background-repeat: no-repeat;
   #background-color: #000000;
+  #background-position: calc(50% + 220px) -120px;
+  #background-repeat: no-repeat;
+  
+  background-image:none;
   background-color: transparent;
   padding: 8rem 6rem;
 }
