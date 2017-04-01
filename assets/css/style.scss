@@ -20,7 +20,6 @@
   top: 50px;
 }
 
-
 .site-logo-small {
   position: absolute;
   left: calc(50% - 200px);
@@ -30,7 +29,7 @@
 @media screen and (max-width: 42em) { 
   .site-logo { display: none; } 
   .site-logo-small { display: inline; } 
-  .page-header { padding: 4rem 6rem; }
+  .page-header { padding: 7rem 6rem; }
 }
 
 @media screen and (min-width: 42em) { 
