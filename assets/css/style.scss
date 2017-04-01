@@ -14,15 +14,17 @@
 .site-logo {
   position: absolute;
   left: calc(50% - 300px);
+  top: 50px;
 }
 
 .raspberry-pi-logo {
   height: 48px;
   position: absolute;
   left: calc(50% + 115px);
-  top: 234px;
+  top: 154px;
 }
 
 .button-container {
-  
+  top: 100px;
+  position: relative;
 }
