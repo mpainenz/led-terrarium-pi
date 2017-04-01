@@ -4,10 +4,10 @@
 @import "{{ site.theme }}";
 
 .page-header {
-  #background-image: url(/led-terrarium-pi/assets/img/header.png);
-  #background-color: #000000;
-  #background-position: calc(50% + 220px) -120px;
-  #background-repeat: no-repeat;
+  /*background-image: url(/led-terrarium-pi/assets/img/header.png);
+  background-color: #000000;
+  background-position: calc(50% + 220px) -120px;
+  background-repeat: no-repeat;*/
   
   background-image: none;
   background-color: transparent;
@@ -33,25 +33,21 @@
   top: 154px;
 }
 
-#Small Screen
+/*Small Screen*/
 @media screen and (max-width: 42em) { 
   .site-logo { display: none; } 
   .site-logo-small { display: inline; } 
   .page-header { padding: 7rem 6rem; }
-  .raspberry-pi-logo { height: 30px; }
+  .raspberry-pi-logo { top: 115px; height: 30px; left: calc(50% + 10px); }
 }
 
-#Large Screen
+/*Large Screen*/
 @media screen and (min-width: 42em) { 
   .site-logo { display: inline; } 
   .site-logo-small { display: none; } 
   .page-header { padding: 8rem 6rem; }
-  .raspberry-pi-logo { height: 48px;  }
+  .raspberry-pi-logo { top: 154px; height: 48px; left: calc(50% + 15px); }
 }
-
- 
-#top: 115px; height: 30px; left: calc(50% + 10px); 
-#top: 154px; height: 48px; left: calc(50% + 15px); 
 
 .button-container {
   top: 100px;
