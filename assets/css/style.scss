@@ -26,6 +26,13 @@
   top: 50px;
 }
 
+.raspberry-pi-logo {
+  height: 48px;
+  position: absolute;
+  left: calc(50% + 15px);
+  top: 154px;
+}
+
 #Small Screen
 @media screen and (max-width: 42em) { 
   .site-logo { display: none; } 
@@ -42,12 +49,7 @@
   .raspberry-pi-logo { top: 154px; height: 48px; left: calc(50% + 15px); }
 }
 
-.raspberry-pi-logo {
-  height: 48px;
-  position: absolute;
-  left: calc(50% + 15px);
-  top: 154px;
-}
+
 
 .button-container {
   top: 100px;
