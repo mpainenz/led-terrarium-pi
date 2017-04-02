@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
   $('#logo-r').jrumble({
-  	x: 2,
+  	x: 1,
   	y: 1,
-  	rotation: 0,
+  	rotation: 1,
   	opacity: true,
 	opacityMin: .2,
 	speed: 150
