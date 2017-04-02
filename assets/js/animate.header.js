@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
   $('#logo-r').jrumble({
-  	x: 1,
-  	y: 0,
+  	x: 2,
+  	y: 1,
   	rotation: 0,
   	opacity: true,
 	opacityMin: .2,
@@ -11,7 +11,7 @@ $(document).ready(function(){
 
   $('#logo-g').jrumble({
     x: 1,
-    y: 0,
+    y: 2,
     rotation: 0,
     opacity: true,
   	opacityMin: .2,
@@ -19,8 +19,8 @@ $(document).ready(function(){
   });
 
     $('#logo-b').jrumble({
-    x: 0,
-    y: 1,
+    x: 1,
+    y: 2,
     rotation: 0,
     opacity: true,
   	opacityMin: .2,
