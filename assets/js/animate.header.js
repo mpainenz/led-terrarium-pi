@@ -6,7 +6,7 @@ $(document).ready(function(){
   	rotation: 0,
   	opacity: true,
 	opacityMin: .2,
-	speed: 100
+	speed: 170
   });
 
   $('#logo-g').jrumble({
@@ -15,7 +15,7 @@ $(document).ready(function(){
     rotation: 0,
     opacity: true,
   	opacityMin: .2,
-  	speed: 100
+  	speed: 160
   });
 
   $('#logo-b').jrumble({
@@ -24,7 +24,7 @@ $(document).ready(function(){
     rotation: 0,
     opacity: true,
   	opacityMin: .2,
-  	speed: 100
+  	speed: 150
   });
 
   $('#logo-w').jrumble({
