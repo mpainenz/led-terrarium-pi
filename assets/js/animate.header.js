@@ -6,7 +6,7 @@ $(document).ready(function(){
   	rotation: 0,
   	opacity: true,
 	opacityMin: .2,
-	speed: 50
+	speed: 100
   });
 
   $('#logo-g').jrumble({
@@ -15,17 +15,26 @@ $(document).ready(function(){
     rotation: 0,
     opacity: true,
   	opacityMin: .2,
-  	speed: 75
+  	speed: 100
   });
 
-    $('#logo-b').jrumble({
+  $('#logo-b').jrumble({
     x: 1,
     y: 2,
     rotation: 0,
     opacity: true,
   	opacityMin: .2,
+  	speed: 100
+  });
+
+  $('#logo-w').jrumble({
+    x: 0,
+    y: 0,
+    rotation: 0,
+    opacity: true,
+  	opacityMin: .8,
   	speed: 75
   });
 
-  $('#logo-r, #logo-g, #logo-b').trigger('startRumble');
+  $('#logo-r, #logo-g, #logo-b, #logo-w').trigger('startRumble');
 });
