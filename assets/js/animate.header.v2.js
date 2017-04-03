@@ -7,14 +7,14 @@ $(document).ready(function() {
 
 
 function randomMovement(target) {
-    x = (Math.random() * 6) - 3;
-    y = (Math.random() * 6) - 3;
-    speed = Math.floor(Math.random() * 300) + 300; 
+    x = (Math.random() * 4) - 2;
+    y = (Math.random() * 4) - 2;
+    //speed = Math.floor(Math.random() * 300) + 200; 
     
     target.velocity({
         top: y,
         left: x
-    }, speed, "swing", function() {
+    }, 400, "swing", function() {
         returnMovement(target);
     });
 };
@@ -23,7 +23,7 @@ function returnMovement(target) {
     target.velocity({
         top: 0,
         left: 0
-    }, 500, "swing", function() {
+    }, 400, "swing", function() {
         randomMovement(target);
     });
 };
@@ -34,7 +34,7 @@ function randomOpacity(target) {
     target.velocity({
         opacity: o
     }, 500, "swing", function() {
-        randomOpacity(target);
+        returnOpacity(target);
     });
 };
 
@@ -42,6 +42,6 @@ function returnOpacity(target) {
     target.velocity({
         opacity: 0.4
     }, 500, "swing", function() {
-        randomMovement(target);
+        randomOpacity(target);
     });
 };
