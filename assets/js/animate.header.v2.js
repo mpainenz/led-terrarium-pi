@@ -1,11 +1,12 @@
 $(document).ready(function() {
-    randomAnimation($('#logo-r'));
-    randomAnimation($('#logo-g'));
-    randomAnimation($('#logo-b'));
+    randomMovement($('#logo-r'));
+    randomMovement($('#logo-g'));
+    randomMovement($('#logo-b'));
+    randomOpacity($('#logo-glow'));
 });
 
 
-function randomAnimation(target) {
+function randomMovement(target) {
     x = (Math.random() * 6) - 3;
     y = (Math.random() * 6) - 3;
     
@@ -13,7 +14,16 @@ function randomAnimation(target) {
         top: y,
         left: x
     }, 1000, "swing", function() {
-        randomAnimation(target);
+        randomMovement(target);
     });
+};
 
+function randomOpacity(target) {
+    o = (Math.random() * .5) + .5;
+    
+    target.animate({
+        opacity: o
+    }, 1000, "swing", function() {
+        randomOpacity(target);
+    });
 };
