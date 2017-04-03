@@ -3,7 +3,7 @@ $(document).ready(function(){
   $('#logo-r').jrumble({
   	x: 1,
   	y: 1,
-  	rotation: 1,
+  	rotation: 0,
   	opacity: true,
 	opacityMin: .2,
 	speed: 170
@@ -11,7 +11,7 @@ $(document).ready(function(){
 
   $('#logo-g').jrumble({
     x: 1,
-    y: 2,
+    y: 1,
     rotation: 0,
     opacity: true,
   	opacityMin: .2,
@@ -20,7 +20,7 @@ $(document).ready(function(){
 
   $('#logo-b').jrumble({
     x: 1,
-    y: 2,
+    y: 1,
     rotation: 0,
     opacity: true,
   	opacityMin: .2,
@@ -33,7 +33,7 @@ $(document).ready(function(){
     rotation: 0,
     opacity: true,
   	opacityMin: .8,
-  	speed: 75
+  	speed: 30
   });
 
   $('#logo-r, #logo-g, #logo-b, #logo-w').trigger('startRumble');
