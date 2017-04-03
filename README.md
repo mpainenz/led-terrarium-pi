@@ -5,12 +5,9 @@
 ### test sub sub heading
 
 
-<!--
 <div class="parallax-window" 
      data-parallax="scroll" 
      data-image-src="/led-terrarium-pi/assets/img/test.jpg">         
--->
-
 
 # led-terrarium-pi
 Raspberry Pi Controlled LED Terrarium
