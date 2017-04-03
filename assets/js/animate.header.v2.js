@@ -1,5 +1,7 @@
 $(document).ready(function() {
     randomAnimation($('#logo-r'));
+    randomAnimation($('#logo-g'));
+    randomAnimation($('#logo-b'));
 });
 
 
