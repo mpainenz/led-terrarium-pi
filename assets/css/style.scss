@@ -15,6 +15,10 @@
   top: 50px;
 }
 
+#logo-r, #logo-g, #logo-b, #logo-w {
+  position: relative;
+}
+
 .site-logo-small {
   position: absolute;
   left: calc(50% - 190px);
