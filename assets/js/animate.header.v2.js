@@ -3,18 +3,12 @@ $(document).ready(function() {
 
 });
 
-function makeNewPosition($container) {
-
-    // Get viewport dimensions (remove the dimension of the div)
-    $container = ($container || $(window))
-    var h = $container.height() - 50;
-    var w = $container.width() - 50;
-
+function makeNewPosition() {
+    var h = 2;
+    var w = 2;
     var nh = Math.floor(Math.random() * h);
     var nw = Math.floor(Math.random() * w);
-
     return [nh, nw];
-
 }
 
 function animateDiv() {
