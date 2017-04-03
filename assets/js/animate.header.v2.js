@@ -2,7 +2,7 @@ $(document).ready(function() {
     randomMovement($('#logo-r'));
     randomMovement($('#logo-g'));
     randomMovement($('#logo-b'));
-    //randomOpacity($('#logo-glow'));
+    randomOpacity($('#logo-glow'));
 });
 
 
@@ -23,17 +23,25 @@ function returnMovement(target) {
     target.velocity({
         top: 0,
         left: 0
-    }, 1000, "swing", function() {
+    }, 500, "swing", function() {
         randomMovement(target);
     });
 };
 
 function randomOpacity(target) {
-    o = (Math.random() * .5) + .5;
+    o = (Math.random() * .4) + .6;
     
     target.velocity({
         opacity: o
-    }, 1000, "swing", function() {
+    }, 500, "swing", function() {
         randomOpacity(target);
+    });
+};
+
+function returnOpacity(target) {
+    target.velocity({
+        opacity: 0.4
+    }, 500, "swing", function() {
+        randomMovement(target);
     });
 };
