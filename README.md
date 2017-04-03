@@ -1,4 +1,4 @@
-<section class="main-content">
+
 
 # test heading
 
@@ -6,7 +6,7 @@
 
 ### test sub sub heading
 
-</section>
+
 
 
 <div class="parallax-window"
