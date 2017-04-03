@@ -12,7 +12,7 @@ function randomAnimation(target) {
     target.animate({
         top: y,
         left: x
-    }, 100, "swing", function() {
+    }, 200, "swing", function() {
         randomAnimation(target);
     });
 
