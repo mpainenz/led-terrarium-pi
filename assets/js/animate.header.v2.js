@@ -18,12 +18,12 @@ function makeNewPosition($container) {
 }
 
 function animateDiv() {
-    var $target = $('.a');
+    var $target = $('#logo-r');
     var newq = makeNewPosition($target.parent());
     var oldq = $target.offset();
     var speed = calcSpeed([oldq.top, oldq.left], newq);
 
-    $('.a').animate({
+    $('#logo-r').animate({
         top: newq[0],
         left: newq[1]
     }, speed, function() {
