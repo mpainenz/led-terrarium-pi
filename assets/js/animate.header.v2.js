@@ -1,17 +1,17 @@
 $(document).ready(function() {
-    randomAnimation();
+    randomAnimation($('#logo-r'));
 });
 
 
-function randomAnimation() {
+function randomAnimation(target) {
     x = (Math.random() * 4) - 2;
     y = (Math.random() * 4) - 2;
     
-    $('#logo-r').animate({
+    target.animate({
         top: y,
         left: x
     }, 100, "swing", function() {
-        randomAnimation();
+        randomAnimation(target);
     });
 
 };
