@@ -14,6 +14,15 @@ function randomMovement(target) {
         top: y,
         left: x
     }, 1000, "swing", function() {
+        returnMovement(target);
+    });
+};
+
+function returnMovement(target) {
+    target.velocity({
+        top: 0,
+        left: 0
+    }, 1000, "swing", function() {
         randomMovement(target);
     });
 };
