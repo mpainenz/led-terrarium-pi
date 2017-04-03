@@ -12,6 +12,7 @@
 <div class="parallax-window" 
      data-parallax="scroll" 
      data-image-src="/led-terrarium-pi/assets/img/test.jpg">         
+</div>
 
 <section class="main-content">
 
