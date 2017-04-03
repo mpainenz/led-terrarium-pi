@@ -15,7 +15,7 @@
      data-image-src="/led-terrarium-pi/assets/img/test.jpg">         
 </div>
 
-<section class="main-content">
+<span class="main-content">
 
 # led-terrarium-pi
 Raspberry Pi Controlled LED Terrarium
@@ -42,4 +42,4 @@ Python Libraries
 * sqlalchemy - `sudo pip install sqlalchemy`
 * MySQL-python - `sudo pip install MySQL-python`
 
-</section>
+</span>
