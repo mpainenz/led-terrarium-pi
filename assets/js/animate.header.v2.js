@@ -6,13 +6,13 @@ $(document).ready(function() {
 
 
 function randomAnimation(target) {
-    x = (Math.random() * 4) - 2;
-    y = (Math.random() * 4) - 2;
+    x = (Math.random() * 6) - 3;
+    y = (Math.random() * 6) - 3;
     
     target.animate({
         top: y,
         left: x
-    }, 200, "swing", function() {
+    }, 500, "swing", function() {
         randomAnimation(target);
     });
 
