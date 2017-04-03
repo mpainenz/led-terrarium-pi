@@ -10,7 +10,7 @@ function randomMovement(target) {
     x = (Math.random() * 6) - 3;
     y = (Math.random() * 6) - 3;
     
-    target.animate({
+    target.velocity({
         top: y,
         left: x
     }, 1000, "swing", function() {
@@ -21,7 +21,7 @@ function randomMovement(target) {
 function randomOpacity(target) {
     o = (Math.random() * .5) + .5;
     
-    target.animate({
+    target.velocity({
         opacity: o
     }, 1000, "swing", function() {
         randomOpacity(target);
