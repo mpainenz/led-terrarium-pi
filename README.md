@@ -1,14 +1,14 @@
 # test heading
 
-## test
+## test sub heading
 
-### test 3
+### test sub sub heading
 
 
 <!--
 <div class="parallax-window" 
      data-parallax="scroll" 
-     data-image-src="/led-terrarium-pi/assets/img/test.png">         
+     data-image-src="/led-terrarium-pi/assets/img/test.jpg">         
 -->
 
 
