@@ -9,7 +9,8 @@
 </section>
 
 
-<div class="parallax-window" 
+<div class="parallax-window"
+     id="image1"
      data-parallax="scroll" 
      data-image-src="/led-terrarium-pi/assets/img/test.jpg">         
 </div>
