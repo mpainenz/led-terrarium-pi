@@ -10,7 +10,7 @@ function randomAnimation() {
     $('#logo-r').animate({
         top: y,
         left: x
-    }, 100, "swing" function() {
+    }, 100, "swing", function() {
         randomAnimation();
     });
 
