@@ -19,6 +19,10 @@
   position: relative;
 }
 
+#logo-glow {
+  opacity: 0.5;
+}
+
 .site-logo-small {
   position: absolute;
   left: calc(50% - 190px);
