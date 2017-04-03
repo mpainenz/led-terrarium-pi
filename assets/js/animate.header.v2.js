@@ -9,11 +9,12 @@ $(document).ready(function() {
 function randomMovement(target) {
     x = (Math.random() * 6) - 3;
     y = (Math.random() * 6) - 3;
+    speed = Math.floor(Math.random() * 300) + 300; 
     
     target.velocity({
         top: y,
         left: x
-    }, 1000, "swing", function() {
+    }, speed, "swing", function() {
         returnMovement(target);
     });
 };
