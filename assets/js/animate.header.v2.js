@@ -4,8 +4,8 @@ $(document).ready(function() {
 
 
 function randomAnimation() {
-    x = (Math.random() * 4) - 2
-    y = (Math.random() * 4) - 2
+    x = (Math.random() * 4) - 2;
+    y = (Math.random() * 4) - 2;
     
     $('#logo-r').animate({
         top: y,
