@@ -33,14 +33,14 @@ function randomOpacity(target) {
     
     target.velocity({
         opacity: o
-    }, 500, "swing", function() {
+    }, 800, "swing", function() {
         returnOpacity(target);
     });
 };
 
 function returnOpacity(target) {
     target.velocity({
-        opacity: 0.4
+        opacity: 0.5
     }, 500, "swing", function() {
         randomOpacity(target);
     });
