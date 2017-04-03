@@ -1,13 +1,19 @@
+<section class="main-content">
+
 # test heading
 
 ## test sub heading
 
 ### test sub sub heading
 
+</section>
+
 
 <div class="parallax-window" 
      data-parallax="scroll" 
      data-image-src="/led-terrarium-pi/assets/img/test.jpg">         
+
+<section class="main-content">
 
 # led-terrarium-pi
 Raspberry Pi Controlled LED Terrarium
@@ -33,3 +39,5 @@ Python Libraries
 * pygal (Graphing Library) - `sudo pip install pygal`
 * sqlalchemy - `sudo pip install sqlalchemy`
 * MySQL-python - `sudo pip install MySQL-python`
+
+</section>
