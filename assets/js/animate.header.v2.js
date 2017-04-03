@@ -2,7 +2,7 @@ $(document).ready(function() {
     randomMovement($('#logo-r'));
     randomMovement($('#logo-g'));
     randomMovement($('#logo-b'));
-    randomOpacity($('#logo-glow'));
+    //randomOpacity($('#logo-glow'));
 });
 
 
