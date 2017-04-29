@@ -2,6 +2,7 @@
 
 ## How to build your own Raspberry Pi powered Terrarium
 
+</div>
 
 <div class="parallax-window"
      id="image1"
@@ -41,4 +42,3 @@
   <li>MySQL-python - <code class="highlighter-rouge">sudo pip install MySQL-python</code></li>
 </ul>
 
-</div>
