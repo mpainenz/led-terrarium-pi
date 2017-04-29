@@ -1,3 +1,5 @@
+<div class="main-content">
+
 # LED Terrarium Build Guide
 
 ## How to build your own Raspberry Pi powered Terrarium
