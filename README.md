@@ -1,9 +1,6 @@
 <div class="main-content">
-
-# LED Terrarium Build Guide
-
-## How to build your own Raspberry Pi powered Terrarium
-
+  <h1 id="led-terrarium-build-guide">LED Terrarium Build Guide</h1>
+  <h2 id="how-to-build-your-own-raspberry-pi-powered-terrarium">How to build your own Raspberry Pi powered Terrarium</h2>
 </div>
 
 <div class="parallax-window"
