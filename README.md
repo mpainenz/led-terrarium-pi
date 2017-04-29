@@ -1,12 +1,6 @@
+# LED Terrarium Build Guide
 
-
-# test heading
-
-## test sub heading
-
-### test sub sub heading
-
-
+## How to build your own Raspberry Pi powered Terrarium
 
 
 <div class="parallax-window"
@@ -15,33 +9,36 @@
      data-image-src="/led-terrarium-pi/assets/img/test.jpg">         
 </div>
 
-<!--span class="main-content">-->
+<div class="main-content">
 
-# led-terrarium-pi
-Raspberry Pi Controlled LED Terrarium
+<h1 id="led-terrarium-pi">led-terrarium-pi</h1>
+<p>Raspberry Pi Controlled LED Terrarium</p>
 
-Uses a Sensor (DHT11, DHT22 or AM2302) to measure heat and humidity
+<p>Uses a Sensor (DHT11, DHT22 or AM2302) to measure heat and humidity</p>
 
+<p>Set the Timezone on your Raspberry Pi with ‘sudo raspi-config’ command. Defaults to UTC</p>
 
-Set the Timezone on your Raspberry Pi with 'sudo raspi-config' command. Defaults to UTC
+<p>Requirements:</p>
+<ul>
+  <li>Python 2.7 (Installed by default)</li>
+  <li>pigpio (GPIO lib for accurate and functional GPIO access)</li>
+</ul>
 
-Requirements:
-* Python 2.7 (Installed by default)
-* pigpio (GPIO lib for accurate and functional GPIO access)
- 
-Packages
-* python-dev - `sudo apt-get install python-dev`
-* build-essential - `sudo apt-get install build-essential`
-* mysql-server - `sudo apt-get install mysql-server`
-* libmysqlclient-dev - `sudo apt-get install libmysqlclient-dev`
+<p>Packages</p>
+<ul>
+  <li>python-dev - <code class="highlighter-rouge">sudo apt-get install python-dev</code></li>
+  <li>build-essential - <code class="highlighter-rouge">sudo apt-get install build-essential</code></li>
+  <li>mysql-server - <code class="highlighter-rouge">sudo apt-get install mysql-server</code></li>
+  <li>libmysqlclient-dev - <code class="highlighter-rouge">sudo apt-get install libmysqlclient-dev</code></li>
+</ul>
 
-Python Libraries
-* Adafruit Python DHT (Lib for connection to Temp/Humidity Sensor) (https://github.com/adafruit/Adafruit_Python_DHT)
-* ephem (Astrological lib to work out Sunrise/Sunset) - `sudo pip install emphem`
-* pygal (Graphing Library) - `sudo pip install pygal`
-* sqlalchemy - `sudo pip install sqlalchemy`
-* MySQL-python - `sudo pip install MySQL-python`
+<p>Python Libraries</p>
+<ul>
+  <li>Adafruit Python DHT (Lib for connection to Temp/Humidity Sensor) (https://github.com/adafruit/Adafruit_Python_DHT)</li>
+  <li>ephem (Astrological lib to work out Sunrise/Sunset) - <code class="highlighter-rouge">sudo pip install emphem</code></li>
+  <li>pygal (Graphing Library) - <code class="highlighter-rouge">sudo pip install pygal</code></li>
+  <li>sqlalchemy - <code class="highlighter-rouge">sudo pip install sqlalchemy</code></li>
+  <li>MySQL-python - <code class="highlighter-rouge">sudo pip install MySQL-python</code></li>
+</ul>
 
-test 
-
-<!--</span>-->
+</div>
