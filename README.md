@@ -15,7 +15,7 @@
      data-image-src="/led-terrarium-pi/assets/img/test.jpg">         
 </div>
 
-<span class="main-content">
+<!--span class="main-content">-->
 
 # led-terrarium-pi
 Raspberry Pi Controlled LED Terrarium
@@ -44,4 +44,4 @@ Python Libraries
 
 test 
 
-</span>
+<!--</span>-->
