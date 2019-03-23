@@ -1,12 +1,16 @@
-#!/usr/bin/env python
-from __future__ import division
-
-import config, database
-import time, datetime, sys, pigpio, ephem
-import Adafruit_DHT
-import pygal
+import sys
+import config
+import time, datetime, pigpio
 import argparse
+import ephem
 
+# Debug statements to help diagnose issues when Python wont run this script
+# print(sys.executable)
+# import os
+# print(os.getcwd())
+# print(sys.path)
+# import platform
+# print(platform.python_version())
 
 class Main():
 
@@ -50,7 +54,8 @@ class Main():
         print "Initializing Temp/Humidity sensor"
         # Sensor should be set to Adafruit_DHT.DHT11,
         # Adafruit_DHT.DHT22, or Adafruit_DHT.AM2302.
-        self.s = config.sensor
+        
+        #self.s = config.sensor
 
         if config.DEMO_MODE:
             print "Running in Demo Mode"
@@ -79,11 +84,11 @@ class Main():
     def _run(self, now):
         print 'Running: ', self._timestamp(now)
         self._get_sunrise_sunset(now)
-        if not config.DEMO_MODE:
-            if self._get_temp_and_humidity():
-                if config.ENABLE_DB:
-                    self._save_to_db(self.temperature, self.humidity)
-                #self._update_graphs()
+        #if not config.DEMO_MODE:
+            #if self._get_temp_and_humidity():
+            #    if config.ENABLE_DB:
+            #        self._save_to_db(self.temperature, self.humidity)
+            #    #self._update_graphs()
         self._update_lighting(now)
         print ''
         sys.stdout.flush()
@@ -124,57 +129,12 @@ class Main():
             print "Next Sunset: %s" % self._timestamp(self.sunset)
 
     def _update_lighting(self, now):
-
-        def get_start_colour_from_map(delta, colour_map):
-            delta_result, colour_result = None, None
-            for d, c in colour_map.iteritems():
-                if delta < d:
-                    delta_result, colour_result = d, c
-            return delta_result, colour_result
-
-        def get_end_colour_from_map(delta, colour_map):
-            for d, c in colour_map.iteritems():
-                if delta > d:
-                    return d, c
-            return None, None
-
-        def get_blend_percentage(delta, start_delta, end_delta):
-            diff = start_delta - end_delta
-            #print "Diff: ", diff
-            if diff == 0:
-                return 0
-            v = start_delta - delta
-            #print "Value: ", v
-            return (v / diff) * 100
-
-        def blend_colours(start_colour, end_colour, blend_percentage):
-            blended_colour = [0, 0, 0, 0]
-            for i in range(4):
-                diff = end_colour[i] - start_colour[i]
-                print "diff: ", diff
-                if diff != 0:
-                    test = diff / 100
-                    print "test: ", test
-                    blend_shift = ((diff / 100) * blend_percentage)
-                    print "Blend Shift: ", blend_shift
-                    blended_colour[i] = start_colour[i] + blend_shift
-                else:
-                    blended_colour[i] = start_colour[i]
-            print "Blend Test: ", blended_colour
-            return blended_colour
-
         is_light = self.sunrise > self.sunset
-
         if is_light:
-
-
-
-
             effective_colour = config.day_colour
             current_phase, next_phase = 'day', 'sunset'
             delta = (self.sunset - now).total_seconds()
             colour_map = config.sunset_colour_map
-
         else:
             effective_colour = config.night_colour
             current_phase, next_phase = 'night', 'sunrise'
@@ -183,149 +143,73 @@ class Main():
 
         print "Currently ", current_phase
 
-        start_delta, start_colour = get_start_colour_from_map(delta, colour_map)
+        start_delta, start_colour = self.get_start_colour_from_map(delta, colour_map)
         if start_delta is not None:
             blending_required = True
             effective_colour = start_colour
-            end_delta, end_colour = get_end_colour_from_map(delta, colour_map)
+            end_delta, end_colour = self.get_end_colour_from_map(delta, colour_map)
         else:
             blending_required = False
             end_delta = None
             print "%s in %d seconds" % (next_phase, delta)
 
         if blending_required:
-            blend_percentage = get_blend_percentage(delta, start_delta, end_delta)
-            effective_colour = blend_colours(start_colour, end_colour, blend_percentage)
-
+            blend_percentage = self.get_blend_percentage(delta, start_delta, end_delta)
+            effective_colour = self.blend_colours(start_colour, end_colour, blend_percentage)
             print "Blend Percentage: ", blend_percentage
             print "Start Colour: ", start_colour
             print "End Colour: ", end_colour
-        else:
-            blend_percentage = 0
-
-
-        # if is_light:
-        #     effective_colour = config.day_colour
-        #     current_phase, next_phase = 'day', 'sunset'
-        #     delta = (self.sunset - now).total_seconds()
-        #     colour_map = config.sunset_colour_map
-        #
-        # else:
-        #     effective_colour = config.night_colour
-        #     current_phase, next_phase = 'night', 'sunrise'
-        #     delta = (self.sunrise - now).total_seconds()
-        #     colour_map = config.sunrise_colour_map
-        #
-        # print "Currently ", current_phase
-        #
-        # start_delta, start_colour = get_start_colour_from_map(delta, colour_map)
-        # if start_delta is not None:
-        #     blending_required = True
-        #     effective_colour = start_colour
-        #     end_delta, end_colour = get_end_colour_from_map(delta, colour_map)
-        # else:
-        #     blending_required = False
-        #     end_delta = None
-        #     print "%s in %d seconds" % (next_phase, delta)
-        #
-        # if blending_required:
-        #     blend_percentage = get_blend_percentage(delta, start_delta, end_delta)
-        #     effective_colour = blend_colours(start_colour, end_colour, blend_percentage)
-        #
-        #     print "Blend Percentage: ", blend_percentage
-        #     print "Start Colour: ", start_colour
-        #     print "End Colour: ", end_colour
-        # else:
-        #     blend_percentage = 0
 
         print "Current Delta: ", delta
         print "Start Delta: ", start_delta
         print "End Delta: ", end_delta
-
         print "Effective Colour: ", effective_colour
 
-        self._set_rgb_led(r=effective_colour[0], g=effective_colour[1], b=effective_colour[2])
-        self._set_white_led(w=effective_colour[3])
+        # Update LEDs
+        if (effective_colour[0] >= 0) and (effective_colour[1] >= 0) and (effective_colour[2] >= 0) and (effective_colour[3] >= 0):
+            self._set_rgb_led(r=effective_colour[0], g=effective_colour[1], b=effective_colour[2])
+            self._set_white_led(w=effective_colour[3])
 
-    def _get_temp_and_humidity(self):
-        print "Polling Temperature/Humidity Sensor"
-        # Get latest readings from sensor. May return None if a CRC error was encountered
-        h, t = Adafruit_DHT.read_retry(self.s, config.th_channel)
+    def get_start_colour_from_map(self, delta, colour_map):
+        delta_result, colour_result = None, None
+        for d, c in colour_map.iteritems():
+            if delta < d:
+                delta_result, colour_result = d, c
+        return delta_result, colour_result
 
-        # Check that values were retrieved, and are in range
-        valid = None not in (h, t) and 0 < h < 100
+    def get_end_colour_from_map(self, delta, colour_map):
+        for d, c in colour_map.iteritems():
+            if delta > d:
+                return d, c
+        return None, None
 
-        # If a previous value was saved, check that the new values are not wildly different
-        if valid and None not in (self.humidity, self.temperature):
-
-            if config.humidity_delta_threshold:
-                h_delta = abs(self.humidity - h)
-                valid = h_delta < config.humidity_delta_threshold
-                if not valid:
-                    print "humidity exceeded delta threshold"
-
-            if valid and config.temp_delta_threshold:
-                t_delta = abs(self.temperature - t)
-                valid = t_delta < config.temp_delta_threshold
-                if not valid:
-                    print "Temperature exceeded delta threshold"
-
-        if valid:
-            print 'Humidity: {0:.2f}%'.format(h)
-            print 'Temperature: {0:0.1f}*C'.format(t)
-            if config.temp_adjustment != 0:
-                t += config.temp_adjustment
-                print 'Adjusted Temperature: {0:0.1f}*C'.format(t)
-
-            self.humidity = h
-            self.temperature = t
-
+    def get_blend_percentage(self, delta, start_delta, end_delta):
+        diff = start_delta - end_delta
+        if diff == 0:
+            return 0
+        v = start_delta - delta
+        blended = (v / diff) * 100
+        if blended > 0:
+            return (v / diff) * 100
         else:
-            print 'Temperature/Humidity not available'
+            return 0
 
-        return None not in (self.temperature, self.humidity)
-
-
-    def _save_to_db(self, temperature, humidity):
-        print "Saving to DB"
-        reading = database.SensorReading()
-        reading.humidity = self.humidity
-        reading.temperature = self.temperature
-        reading.snapshotDate = datetime.datetime.now()
-        database.session.add(reading)
-        try:
-            database.session.commit()
-        except Exception as e:
-            print e.message
-
-    def _update_graphs(self):
-        print "Generating Graph"
-        line_chart = pygal.Line()
-        line_chart.title = "test"
-
-        temps = []
-        humidities = []
-        dates = []
-
-        # Get Todays Graph
-        start_of_day = datetime.datetime.now()
-        start_of_day = start_of_day.replace(hour=0, minute=0, second=0, microsecond=0)
-
-        sensor_readings = database.session.query(database.SensorReading)\
-            .filter(database.SensorReading.snapshotDate > start_of_day)\
-            .order_by(database.SensorReading.snapshotDate)\
-            .all()
-
-        for r in sensor_readings:
-            dates.append(r.snapshotDate)
-            temps.append(r.temperature)
-            humidities.append(r.humidity)
-
-        line_chart.x_labels = dates
-        line_chart.add('Temperature', temps)
-        line_chart.add('Humidity', humidities)
-        line_chart.render_to_file('test.svg')
-
+    def blend_colours(self, start_colour, end_colour, blend_percentage):
+        print "Blend Percentage: ", blend_percentage
+        blended_colour = [0, 0, 0, 0]
+        for i in range(4):
+            diff = end_colour[i] - start_colour[i]
+            print "diff: ", diff
+            if diff != 0:
+                test = diff / 100
+                # print "test: ", test
+                blend_shift = ((diff / 100) * blend_percentage)
+                # print "Blend Shift: ", blend_shift
+                blended_colour[i] = start_colour[i] + blend_shift
+            else:
+                blended_colour[i] = start_colour[i]
+        print "Blend Test: ", blended_colour
+        return blended_colour
 
 
     def _set_rgb_led(self, r=0, g=0, b=0):

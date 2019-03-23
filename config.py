@@ -1,4 +1,4 @@
-import Adafruit_DHT
+#import Adafruit_DHT
 
 # Set to true to run through Sunrise colours in Demo mode
 DEMO_MODE = False # Fast forward mode
@@ -15,7 +15,7 @@ w_channel = 18
 # Sensor should be set to Adafruit_DHT.DHT11,
 # Adafruit_DHT.DHT22, or Adafruit_DHT.AM2302.
 # For AM2301, specify AM2302
-sensor = Adafruit_DHT.AM2302
+#sensor = Adafruit_DHT.AM2302
 
 # Optionally specify an amount in Degrees to adjust the output temperature by.
 # Useful if the sensor is slightly out, which is not uncommon
@@ -38,7 +38,8 @@ longitude = "174.74"
 day_colour = [75, 255, 0, 100]
 
 # RGBW Value to use during Night
-night_colour = [0, 30, 20, 5]
+#night_colour = [0, 200, 200, 0]
+night_colour = [0, 100, 100, 0]
 
 
 # Sunset/Sunrise RGB & White LED Colour values over time
