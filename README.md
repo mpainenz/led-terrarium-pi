@@ -1,6 +1,6 @@
 <div class="main-content">
-  <h1 id="led-terrarium-build-guide">LED Terrarium Build Guide</h1>
-  <h2 id="how-to-build-your-own-raspberry-pi-powered-terrarium">How to build your own Raspberry Pi powered Terrarium</h2>
+  <h2 id="how-to-build-your-own-raspberry-pi-powered-terrarium">Build your own Raspberry Pi powered Terrarium</h2>
+  <p>Automatically create a day and night cycle to make your indoor terrarium thrive.</p>
 </div>
 
 <div class="parallax-window"
