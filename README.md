@@ -1,6 +1,6 @@
 <div class="main-content">
   <h2 id="how-to-build-your-own-raspberry-pi-powered-terrarium">Build your own Raspberry Pi powered Terrarium</h2>
-  <p>Automatically create a day and night cycle to make your indoor terrarium thrive.</p>
+  <p>Using a small Raspberry Pi micro computer, control LED lighting inside a terrarium, automatically cycle LED lighting on and off throughout the day and night. Using this technique, your terrarium can be fully self contained, getting all the sunlight it needs!</p>
 </div>
 
 <div class="parallax-window"
