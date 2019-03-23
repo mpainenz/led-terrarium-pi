@@ -1,11 +1,13 @@
 <div class="main-content">
   <h2 id="how-to-build-your-own-raspberry-pi-powered-terrarium">Build your own Raspberry Pi powered Terrarium</h2>
-  <p>Use a Raspberry Pi to control LED lighting for a terrarium. Use the code I've shared on <a href="https://github.com/mpainenz/led-terrarium-pi">my Github page</a>, and build your own!
+  <p>Use a Raspberry Pi to control LED lighting for a terrarium. Download the code I've shared on <a href="https://github.com/mpainenz/led-terrarium-pi">my Github page</a>, follow my instructions, and build your own self contained terrarium.
     </p>
     
     
-    <ul>
+<ul>
   <li>Uses your geographical location to calculate the actual sunrise and sunset times to use</li>
+  <li>Using an RGB LED light strip, creates different colour tones throughout the sunrise, day, sunset, and night</li>
+  <li>Using an aditional white LED light strip, provides enough light to feed the plants in your terrarium</li>
 </ul>
     
     * 
