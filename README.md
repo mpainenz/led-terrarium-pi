@@ -4,7 +4,11 @@
     </p>
     
     
-    * Uses your longitude and latitude to calculate
+    <ul>
+  <li>Uses your geographical location to calculate the actual sunrise and sunset times to use</li>
+</ul>
+    
+    * 
     
 </div>
 
