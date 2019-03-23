@@ -1,0 +1,63 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.page-header { 
+  background-image: none;
+  background-color: transparent;
+  padding: 8rem 6rem;
+}
+
+.site-logo {
+  position: absolute;
+  left: calc(50% - 400px);
+  top: 50px;
+}
+
+#logo-r, #logo-g, #logo-b, #logo-glow, #logo-w {
+  position: relative;
+}
+
+#logo-glow {
+  opacity: 0.5;
+}
+
+.site-logo-small {
+  position: absolute;
+  left: calc(50% - 190px);
+  top: 70px;
+}
+
+.raspberry-pi-logo {
+  height: 48px;
+  position: absolute;
+  left: calc(50% + 15px);
+  top: 154px;
+}
+
+/*Small Screen*/
+@media screen and (max-width: 42em) { 
+  .site-logo { display: none; } 
+  .site-logo-small { display: inline; } 
+  .page-header { padding: 7rem 6rem; }
+  .raspberry-pi-logo { top: 135px; height: 30px; left: calc(50% + 60px); }
+}
+
+/*Large Screen*/
+@media screen and (min-width: 42em) { 
+  .site-logo { display: inline; } 
+  .site-logo-small { display: none; } 
+  .page-header { padding: 8rem 6rem; }
+  .raspberry-pi-logo { top: 154px; height: 48px; left: calc(50% + 15px); }
+}
+
+.button-container {
+  top: 100px;
+  position: relative;
+}
+
+#image1 {
+  height: 400px; 
+}
+
