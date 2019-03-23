@@ -1,6 +1,10 @@
 <div class="main-content">
   <h2 id="how-to-build-your-own-raspberry-pi-powered-terrarium">Build your own Raspberry Pi powered Terrarium</h2>
-  <p>Using a small Raspberry Pi micro computer, control LED lighting inside a terrarium, automatically cycle LED lighting on and off throughout the day and night. Using this technique, your terrarium can be fully self contained, getting all the sunlight it needs!</p>
+  <p>Use a Raspberry Pi to control LED lighting for a terrarium. Use the code I've shared on my Github page
+    
+    * Uses your longitude and latitude to calculate
+    
+    automatically cycle LED lighting on and off throughout the day and night. Using this technique, your terrarium can be fully self contained, getting all the sunlight it needs!</p>
 </div>
 
 <div class="parallax-window"
