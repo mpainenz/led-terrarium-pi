@@ -56,15 +56,20 @@
 <p>Sounds simple right? Unfortunately there are two problems...</p>
 
 <ul>
-  <li>The LED strips require 12 volts, but the GPIO pins only supply 3 volts. </li>
-  <li>The GPIO pins can either output 3V or 0V, there's no inbetween. So either the LED lights can be at full power, or no power. For an RGB lightstrip to show a full range of colours, we need values in between the min and max voltage</li>
+  <li>The LED strips require 12 volts, but the GPIO pins only supply 3.3 volts. </li>
+  <li>The GPIO pins can either be on or off. There's no in-between. So either the LED lights can be at full power, or no power. For an RGB light strip to show a full range of colours, or a white strip to be at varying brightnesses, we need the values in between the min and max voltage</li>
 </ul>
 
-<p>Fortunately, we have a solution. </p>
+<p>Fortunately, we have solutions. </p>
 
 
+<h2 id="led-terrarium-pi">MOSFET</h2>
 
+<p>Instead of using the Raspberry Pi GPIO pins to power the LED strips (which wouldn't work because the output voltage is too low at 3.3v when we need 12v), we will instead power the LED strips off a 12v power supply, and introduce a MOSFET into that circuit.</p>
+  
+<img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/12901-01.jpg?sanitize=true&raw=true">
 
+<p>Instead of using the Raspberry Pi GPIO pins to power the LED strips (which wouldn't work because the output voltage is too low at 3.3v when we need 12v), we will instead power the LED strips off a 12v power supply, and introduce a MOSFET into that circuit.</p>
 
 <h2 id="led-terrarium-pi">Installing the software</h2>
 
