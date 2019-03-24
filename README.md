@@ -73,7 +73,7 @@
 <img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/diagram1_bb.png?sanitize=true&raw=true">
 </p>
 
-<p>We connect our Raspberry Pi and our LED light strip to our MOSFET. I've shown one MOSFET here, but we would need to add one per colour on the RGB strip, and another one for our White LED strip. Each of these are controlled separately to achieve a full colour spectrum</p>
+<p>We connect our Raspberry Pi and our LED light strip to our MOSFET. I've shown one MOSFET here, but we would need to add one per colour on the RGB strip, and another one for our White LED strip. Each of these are controlled separately to achieve a full colour spectrum.</p>
 
 <p align="center">
 <img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/mosfet.jpg?sanitize=true&raw=true">
@@ -207,12 +207,39 @@
 
 <p>Requirements:</p>
 <ul>
-  <li>Python 2.7 (usually installed for you)</li>
-  <li>pigpio (Also usually installed)</li>
+  <li>Python 2.7 (comes by default)</li>
+  <li>pigpio (comes by default)</li>
 </ul>
 
 <p>Python Libraries</p>
 <ul>
   <li>ephem (Astrological lib to work out Sunrise/Sunset) - <code class="highlighter-rouge">sudo pip install emphem</code></li>
 </ul>
+
+
+<p>To install my light controller script, simply copy the main.py and config.py files to a directory of the Raspberry Pi, and type the following commands</p>
+
+<code class="highlighter-rouge">pigpiod</code>
+<code class="highlighter-rouge">sudo python main.py</code>
+
+<p>The first command starts the GPIO daemon, and the second command runs my script. The GPIO daemon is the software the Raspberry Pi uses to send and receieve signals over the GPIO interface</p>
+
+<h2 id="led-terrarium-pi">Changing your settings</h2>
+
+<p>Modify the config.py file and provide your latitude & longitude to allow the script to give you the correct day/night cycle for your location.</p>
+
+
+<p>Optionally you can also specify which GPIO pins to use. The default is as follows:</p>
+<ul>
+  <li>Red: 25</li>
+  <li>Green: 27</li>
+  <li>Blue: 22</li>
+  <li>White: 18</li>  
+</ul>
+
+
+<h2 id="about-me">About me</h2>
+<p>Hi there, My name is Mark Paine, I'm a software developer based in New Zealand. Thanks for reading my guide. If you have any questions or comments, feel free to get in touch either here, or via email on <a href = "mailto: mpainenz@gmail.com">mpainenz@gmail.com</a></p>
+
+<p>If you create your ownterrarium using this guide, send me a photo. Do you love this Terrarium, but can't build your own? Perhaps I can build you one? Get in touch. :)</p>
 
