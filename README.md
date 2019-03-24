@@ -239,7 +239,18 @@
 
 
 <h2 id="about-me">About me</h2>
-<p>Hi there, My name is Mark Paine, I'm a software developer based in New Zealand. Thanks for reading my guide. If you have any questions or comments, feel free to get in touch either here, or via email on <a href = "mailto: mpainenz@gmail.com">mpainenz@gmail.com</a></p>
+<p>Hi, My name is Mark Paine, I'm a software developer based in New Zealand. I love nature, electronics, and programming. It was great to combine it all together and produce this guide. I hope you enjoyed reading it.</p>
 
-<p>If you create your ownterrarium using this guide, send me a photo. Do you love this Terrarium, but can't build your own? Perhaps I can build you one? Get in touch. :)</p>
+<p>If you have any questions or comments, feel free to get in touch either here in the 'issues' section of the GitHub page, or via email on <a href = "mailto: mpainenz@gmail.com">mpainenz@gmail.com</a></p>
 
+<p>If you create your own terrarium using this guide, send me a photo.</p>
+
+<p>Do you love this Terrarium, but can't build your own? Perhaps I can build you one? Get in touch. :)</p>
+
+</div>
+<div class="parallax-window"
+     id="image1"
+     data-parallax="scroll" 
+     data-image-src="/led-terrarium-pi/assets/img/51833_10151268154790850_972230833_o.jpg">         
+</div>
+<div class="main-content">
