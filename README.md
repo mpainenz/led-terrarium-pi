@@ -13,10 +13,10 @@
   <ul>
     <li>A Raspberry Pi (any version will do)</li>
     <li>A Terrarium</li>
-    <li>A 12v DC Power Supply</li>   
-    <li>A 12v to 5v UBEC (Allows you to power your Pi from a 12v source</li>
     <li>A White LED Light strip (to provide light to the plants)</li>
     <li>An RGB LED Light strip (to provide color effects)</li>
+    <li>A 12v DC Power Supply</li>   
+    <li>A 12v to 5v UBEC (Powers your Pi from the same 12v supply as the LED strips)</li>
     <li>A soldering iron and solder</li>
     <li>4 x MOSFET Transistors (Used in the lighting circuits)</li>
     <li>4 x Resistors (Also used in the lighting circuits)</li>
