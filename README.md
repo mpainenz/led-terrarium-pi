@@ -49,9 +49,21 @@
 
 <p>All Raspberry Pi's come with a series of GPIO pins which you can control.</p>
 
-<img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/DSC00015.JPG?sanitize=true&raw=true">
+<img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/gpio.jpg?sanitize=true&raw=true">
 
-<p>GPIIO pins either accept an input voltage which can be read, or output a signal. In this case, we want to power our LED lights, so we want to output a signal.</p>
+<p>GPIO pins either accept an input voltage which can be read, or output a signal. In this case, we want to power our LED lights, so we want to output a signal. In our software, we tell the Raspberry Pi that we want to use three pins to control the RGB light strip (one for each colour), and one pin to control the White LED strip.</p>
+
+<p>Sounds simple right? Unfortunately there are two problems...</p>
+
+<ul>
+  <li>The LED strips require 12 volts, but the GPIO pins only supply 3 volts. </li>
+  <li>The GPIO pins can either output 3V or 0V, there's no inbetween. So either the LED lights can be at full power, or no power. For an RGB lightstrip to show a full range of colours, we need values in between the min and max voltage</li>
+</ul>
+
+<p>Fortunately, we have a solution. </p>
+
+
+
 
 
 <h2 id="led-terrarium-pi">Installing the software</h2>
