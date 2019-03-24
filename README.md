@@ -96,7 +96,7 @@
 <div class="parallax-window"
      id="image1"
      data-parallax="scroll" 
-     data-image-src="/led-terrarium-pi/assets/img/20160201_110614.jpg">         
+     data-image-src="/led-terrarium-pi/assets/img/20160203_145956.jpg">         
 </div>
 <div class="main-content">
 
