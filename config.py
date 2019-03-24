@@ -1,9 +1,5 @@
 #import Adafruit_DHT
 
-# Set to true to run through Sunrise colours in Demo mode
-DEMO_MODE = False # Fast forward mode
-DEMO_SPEED = 10 #1 sec = x sec
-
 # GPIO Channel for RGB LED Strip
 r_channel = 25
 g_channel = 27
@@ -11,23 +7,6 @@ b_channel = 22
 
 # GPIO Channel for white LED Strip
 w_channel = 18
-
-# Sensor should be set to Adafruit_DHT.DHT11,
-# Adafruit_DHT.DHT22, or Adafruit_DHT.AM2302.
-# For AM2301, specify AM2302
-#sensor = Adafruit_DHT.AM2302
-
-# Optionally specify an amount in Degrees to adjust the output temperature by.
-# Useful if the sensor is slightly out, which is not uncommon
-temp_adjustment = 0
-
-# Optionally set a valid threshold delta that a new reading must not pass to be valid. Useful if you occasionally get
-# invalid values from your temp/humidity sensor. 0 to disable.
-temp_delta_threshold = 30 # must not vary X degrees since last reading
-humidity_delta_threshold = 50 # must not vary X percent humidity since last reading
-
-# GPIO Channel for Temperature & Humidity Sensor
-th_channel = 23
 
 # Location Latitude and Longitude (Auckland, New Zealand)
 latitude = "-36.84"
@@ -66,10 +45,6 @@ sunset_colour_map = {   3600: day_colour,
 
 
 
-# SQL Database (Optional)
-ENABLE_DB = False
-db_dialect_driver = 'mysql' # See http://docs.sqlalchemy.org/en/latest/core/engines.html
-db_name = 'terrarium'
-db_user = 'root'
-db_pass = 'somesecurepassword'
-db_address = '127.0.0.1'
+# Set to true to run through Sunrise colours in Demo mode
+DEMO_MODE = False # Fast forward mode
+DEMO_SPEED = 10 #1 sec = x sec
