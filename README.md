@@ -105,7 +105,7 @@
 
 <h2 id="led-terrarium-pi">Controlling the lights</h2>
 
-<p>I mentioned earlier that there is another issue here. Our LED strips are analogue. The accept any current between 0v and 12v. For the RGB light strip, to generate a wide selection of colours, that means we want to use all sorts of voltages.</p>
+<p>I mentioned earlier that there is another issue here. Our LED strips are analogue. They accept any current between 0v and 12v. For the RGB light strip, to generate a wide selection of colours, that means we want to use all sorts of voltages.</p>
 
 <p>When the Raspberry Pi is instructed to send an output voltage to our MOSFET, it can only send either 0v or 3.3v. There is no in-between. If we could half the voltage and send 1.65v to the gate of the mosfet, we would expect around 6v of current on the light circuit.</p>
 
@@ -113,17 +113,42 @@
 
 <h2 id="led-terrarium-pi">Pulse Width Modulation</h2>
 
-<p>Feel free to skip this section if you want, I've handled this in the code so you don't really need to understand this part. But if you are interested, what we can do is quickly alternate the output 3.3v signal on and off many times a second. We can then have the software turn that signal on for longer, or off for longer, depending on what current we want to try and emulate.</p>
-
+<p>Feel free to skip this section if you want, I've handled this in the code so you don't really need to understand this part. But if you are interested, what we can do is quickly alternate the output 3.3v signal on and off many times a second. We can then have the software turn that signal on for longer, or off for longer, depending on what volate we want to try and emulate.</p>
 
 <p align="center">
 <img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/pwm2.jpg?sanitize=true&raw=true">
 </p>
   
-<p></p>
-  
+</div>
+<div class="parallax-window"
+     id="image1"
+     data-parallax="scroll" 
+     data-image-src="/led-terrarium-pi/assets/img/DSC00021.JPG">         
+</div>
+<div class="main-content">
 
-<p>I mentioned earlier that there is another issue here. Our LED strips are analogue. When current passes through the lights, they turn on. The higher the current, the brighter the lights (at a maxiumum of 12v).</p>
+
+<h2 id="led-terrarium-pi">The fun part</h2>
+
+<p>Now that the hard part is done, putting the terrarium together can start. For mine, I chose to try and build a closed terrarium and grow mosses, lichens, and other moisture loving plants.</p>
+
+<p>To create a healthy enviroment for the plants, it's useful to create a area in the bottom of the container which contains either spagnum moss, or charcoal. My understanding is that this can help to prevent toxic compounds from lingering in the bottom where the water drains. It will help to prevent the envirment in the soil turning anaerobic, and will be more beneficial to the health of the overall system</p>
+
+<p>For my terrarium soil and drainage, I used...</p>
+  
+  <ul>
+    <li>Small rocks</li>
+    <li>Medium sized rocks</li>
+    <li>Cacti and Succulent Potting Mix (Formulated to drain very well)</li>
+    <li>Spagnum Moss</li>
+    <li>Charcoal</li>
+    <li>A Coffee Filter</li>
+  </ul>
+
+
+<p align="center">
+<img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/20160312_164059.jpg?sanitize=true&raw=true">
+</p>
 
 
 
