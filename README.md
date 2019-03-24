@@ -28,10 +28,10 @@
 
 <h2 id="lets-get-started">Lets get started</h2>
 
-<p>It might seem complicated, but it's pretty straight forward once we break it down into parts. Keep scrolling and we can go through each step. If you get stuck, feel free to send me an email. Or perhaps I could make one for you?
+<p>It might seem complicated, but it's pretty straight forward once we break it down into parts. Keep scrolling and we can go through each step. If you get stuck, feel free to send me an email. Perhaps I could make one for you?</p>
   
-Keep scrolling for more...
-</p>
+<p>Keep scrolling for more...</p>
+
 
 </div>
 
@@ -42,6 +42,17 @@ Keep scrolling for more...
 </div>
 
 <div class="main-content">
+
+
+<h2 id="led-terrarium-pi">Powering the lights</h2>
+<p>How can a Raspberry Pi control LED lighting?</p>
+
+<p>All Raspberry Pi's come with a series of GPIO pins which you can control.</p>
+
+<img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/DSC00015.JPG?sanitize=true&raw=true">
+
+<p>GPIIO pins either accept an input voltage which can be read, or output a signal. In this case, we want to power our LED lights, so we want to output a signal.</p>
+
 
 <h2 id="led-terrarium-pi">Installing the software</h2>
 
