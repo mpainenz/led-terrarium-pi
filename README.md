@@ -34,13 +34,11 @@
 
 
 </div>
-
 <div class="parallax-window"
      id="image1"
      data-parallax="scroll" 
      data-image-src="/led-terrarium-pi/assets/img/test.jpg">         
 </div>
-
 <div class="main-content">
 
 
@@ -90,8 +88,19 @@
 
 <p>The part I have used here (Part Number IRLZ34N) is a perfect fit for a 12v LED light circuit. It is rated to work with the Raspberry Pi's 3.3v output and the 12v light circuit. There are two types of MOSFETS, and they are wired differently. This is an N-type MOSFET.</p>
 
-  
+<img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/20160131_165812.jpg?sanitize=true&raw=true">
 
+<p>It can be helpful to use a little PCB board to attach the MOSFETs to. The image above was my first attempt. I ended up redoing this part, and not using a PCB. Instead I just used solder, wire, and heat shrink to save a little space.</p>
+
+<p>You might notice that in the picture above, I'm also using the 12v power source to power the Raspberry Pi. The Raspberry Pi can accept 5v power into the GPIO interface. How do we step down from 12v to 5v? We can use a 12v to 5v UBEC. This accepts a 12v source, and outputs a 5v current. This step is optional, you could just use a normal 5v power supply, but I wanted to only have one cable going into the terrarium</p>
+
+</div>
+<div class="parallax-window"
+     id="image1"
+     data-parallax="scroll" 
+     data-image-src="/led-terrarium-pi/assets/img/20160203_145956.jpg">         
+</div>
+<div class="main-content">
 
 
 <h2 id="led-terrarium-pi">Installing the software</h2>
