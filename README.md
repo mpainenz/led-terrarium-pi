@@ -7,6 +7,10 @@
     <li>Uses your geographical location to calculate the actual sunrise and sunset times to use</li>
     <li>Changes colour throughout the sunrise, day, sunset, and night</li>  
   </ul>
+  
+  
+  <h2 id="you-will-need">You will need...</h2>
+  
 </div>
 
 <div class="parallax-window"
