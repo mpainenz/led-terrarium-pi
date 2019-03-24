@@ -79,11 +79,11 @@
 <img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/mosfet.png?sanitize=true&raw=true">
   
 <p>A MOSFET has three pins. From left to right, Gate, Drain, Source.</p>
-
-<p>The Gate pin is what is connected to the Raspberry Pi, and is used to open the Source/Drain circuit. You might notice that we need to also connect the Gate pin to negative with a resistor. When voltage is applied to the Gate pin, it charges up like a capacitor, so it must also be attached to negative with a resistor. If you skip that step, the gate will remain open when voltage is not being applied. The resistor allows the Gate to discharge.</p>
-
-
-<p>The LED circuit is attached to the Source Pin, and then the Drain is connected to the negative terminal of the power source. Unless voltage is being applied to the Gate, this circuit remains closed.</p>
+<ul>
+  <li>The Gate pin is what is connected to the Raspberry Pi, and is used to open the Source/Drain circuit. You might notice that we need to also connect the Gate pin to negative with a resistor. When voltage is applied to the Gate pin, it charges up like a capacitor, so it must also be attached to negative with a resistor. If you skip that step, the gate will remain open when voltage is not being applied. The resistor allows the Gate to discharge.</li>
+  
+  <li>The Source and Drain pins are attached to the LED circuit. Unless voltage is being applied to the Gate, this circuit remains closed.</li>
+</ul>
 
 <p>The part I have used here (Part Number IRLZ34N) is a perfect fit for a 12v LED light circuit. It is rated to work with the Raspberry Pi's 3.3v output and the 12v light circuit. There are two types of MOSFETS, and they are wired differently. This is an N-type MOSFET.</p>
 
