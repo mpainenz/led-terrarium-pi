@@ -220,6 +220,7 @@
 <p>To install my light controller script, simply copy the main.py and config.py files to a directory of the Raspberry Pi, and type the following commands</p>
 
 <code class="highlighter-rouge">pigpiod</code>
+
 <code class="highlighter-rouge">sudo python main.py</code>
 
 <p>The first command starts the GPIO daemon, and the second command runs my script. The GPIO daemon is the software the Raspberry Pi uses to send and receieve signals over the GPIO interface</p>
