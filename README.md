@@ -28,10 +28,10 @@
 
 <h2 id="lets-get-started">Lets get started</h2>
 
-<p>It might seem complicated, but it's pretty straight forward once we break it down into parts. Keep scrolling and we can go through each step. If you get stuck, feel free to send me an email. Or if you're really rich, perhaps I can sell you one at an inflated price!
+<p>It might seem complicated, but it's pretty straight forward once we break it down into parts. Keep scrolling and we can go through each step. If you get stuck, feel free to send me an email. Or perhaps I could make one for you?
   
-  Keep scrolling for further instructions...
-  </p>
+Keep scrolling for more...
+</p>
 
 </div>
 
