@@ -23,12 +23,14 @@
     <li>Various lengths of electrical wire</li>
   </ul>
 
+<img src="/led-terrarium-pi/assets/img/test.jpg">
+
 </div>
 
 <div class="parallax-window"
      id="image1"
      data-parallax="scroll" 
-     data-image-src="/led-terrarium-pi/assets/img/test.jpg">         
+     data-image-src="/led-terrarium-pi/assets/img/20160201_110606.jpg">         
 </div>
 
 <div class="main-content">
