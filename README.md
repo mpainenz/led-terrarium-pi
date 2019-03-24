@@ -23,7 +23,7 @@
     <li>Various lengths of electrical wire</li>
   </ul>
 
-<img src="/led-terrarium-pi/assets/img/20160201_110606.jpg">
+<img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/20160201_110606.jpg">
 
 </div>
 
