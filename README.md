@@ -147,7 +147,7 @@
 
 
 <p align="center">
-<img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/pwm2.jpg?sanitize=true&raw=true">
+<img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/20160312_164059.jpg?sanitize=true&raw=true">
 </p>
 
 
