@@ -71,12 +71,15 @@
 
 <p>Think of the MOSFET here as a type of switch. The MOSFET has two circuits running through it. When current passes through one of those circuits, it opens the other circuit. </p>
 
+<p align="center">
 <img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/diagram1_bb.png?sanitize=true&raw=true">
+</p>
 
 <p>We connect our Raspberry Pi and our LED light strip to our MOSFET. I've shown one MOSFET here, but we would need to add one per colour on the RGB strip, and another one for our White LED strip. Each of these are controlled separately to achieve a full colour spectrum</p>
 
-
-<img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/mosfet.png?sanitize=true&raw=true">
+<p align="center">
+<img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/mosfet.jpg?sanitize=true&raw=true">
+</p>
   
 <p>A MOSFET has three pins. From left to right, Gate, Drain, Source.</p>
 <ul>
