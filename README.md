@@ -51,16 +51,16 @@
 
 <img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/gpio.jpg?sanitize=true&raw=true">
 
-<p>GPIO pins either accept an input voltage which can be read, or output a signal. In this case, we want to power our LED lights, so we want to output a signal. In our software, we tell the Raspberry Pi that we want to use three pins to control the RGB light strip (one for each colour), and one pin to control the White LED strip.</p>
+<p>GPIO pins either accept an input voltage which can be read, or can be setup to output a voltage signal. In this case, we want to power our LED lights, so we want to output a signal. In our software, we tell the Raspberry Pi that we want to use three pins to control the RGB light strip (one for each colour), and one pin to control the White LED strip.</p>
 
 <p>Sounds simple right? Unfortunately there are two problems...</p>
 
 <ul>
-  <li>The LED strips require 12 volts, but the GPIO pins only supply 3.3 volts. </li>
-  <li>The GPIO pins can either be on or off. There's no in-between. So either the LED lights can be at full power, or no power. For an RGB light strip to show a full range of colours, or a white strip to be at varying brightnesses, we need the values in between the min and max voltage</li>
+  <li>The LED strips require 12 volts, but the GPIO pins only output 3.3 volts. </li>
+  <li>The output voltage on the GPIO pins can either be 3.3v or 0v. There's no in-between. For an RGB light strip to show a full range of colours, or a white strip to be at varying brightnesses, we need the values in between the min and max voltage</li>
 </ul>
 
-<p>Fortunately, we have solutions. </p>
+<p>Fortunately, we have solutions to both of these issues. </p>
 
 
 <h2 id="led-terrarium-pi">MOSFET</h2>
@@ -69,7 +69,9 @@
   
 <img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/12901-01.jpg?sanitize=true&raw=true">
 
-<p>Instead of using the Raspberry Pi GPIO pins to power the LED strips (which wouldn't work because the output voltage is too low at 3.3v when we need 12v), we will instead power the LED strips off a 12v power supply, and introduce a MOSFET into that circuit.</p>
+<p>Think of the MOSFET here as a type of switch. When power is supplies to the MOSFET through one of the three pins, it opens the circuit through one of the other pins (the third pin is a ground, which is shared across both the other pins).</p>
+
+<img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/diagram1_bb.png?sanitize=true&raw=true">
 
 <h2 id="led-terrarium-pi">Installing the software</h2>
 
