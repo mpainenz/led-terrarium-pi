@@ -134,9 +134,10 @@
 
 <p>To create a healthy enviroment for the plants, it's useful to create a area in the bottom of the container which contains either spagnum moss, or charcoal. My understanding is that this can help to prevent toxic compounds from lingering in the bottom where the water drains. It will help to prevent the envirment in the soil turning anaerobic, and will be more beneficial to the health of the overall system</p>
 
-<p>For my terrarium soil and drainage, I used...</p>
+<p>For my terrarium, I used...</p>
   
   <ul>
+    <li>Wild plants and mosses collected from nature</li>
     <li>Small rocks</li>
     <li>Medium sized rocks</li>
     <li>Cacti and Succulent Potting Mix (Formulated to drain very well)</li>
@@ -144,11 +145,59 @@
     <li>Charcoal</li>
     <li>A Coffee Filter</li>
   </ul>
-
-
+  
 <p align="center">
 <img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/20160312_164059.jpg?sanitize=true&raw=true">
 </p>
+  
+
+<p>First I started with large rocks at the bottom</p>
+
+<p align="center">
+<img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/20160312_164917.jpg?sanitize=true&raw=true">
+</p>
+
+<p>Next I placed a piece of Coffee filter paper on top </p>
+
+<p align="center">
+<img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/20160312_165603.jpg?sanitize=true&raw=true">
+</p>
+
+<p>And on top of that, a combination of Spagnum Moss and crushed Charcoal (be sure not to use any charcoal that might have a checmical accelerant added to it to help it burn faster)</p>
+
+<p align="center">
+<img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/20160312_170434.jpg?sanitize=true&raw=true">
+</p>
+
+
+<p>On top of that some small rocks</p>
+
+<p align="center">
+<img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/20160312_170912.jpg?sanitize=true&raw=true">
+</p>
+
+<p>And on top of that some potting mix</p>
+
+<p align="center">
+<img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/20160312_171522.jpg?sanitize=true&raw=true">
+</p>
+
+
+<p>Now that we have a functional drainage and bedding layer, the plants can be added. This part was difficult to photograph, but essentially it's a bit of a jigsaw puzzle, and is really an art form in itself. </p>
+
+<p align="center">
+<img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/20160425_111446.jpg?sanitize=true&raw=true">
+</p>
+
+
+</div>
+<div class="parallax-window"
+     id="image1"
+     data-parallax="scroll" 
+     data-image-src="/led-terrarium-pi/assets/img/20160320_183034.jpg">         
+</div>
+<div class="main-content">
+
 
 
 
