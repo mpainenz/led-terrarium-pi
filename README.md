@@ -222,7 +222,7 @@
 
 <p>Python Libraries</p>
 <ul>
-  <li>ephem (Astrological lib to work out Sunrise/Sunset) - <code class="highlighter-rouge">sudo pip install emphem</code></li>
+  <li>ephem (Astronomical library to work out Sunrise/Sunset) - <code class="highlighter-rouge">sudo pip install emphem</code></li>
 </ul>
 
 
