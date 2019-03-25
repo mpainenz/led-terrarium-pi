@@ -90,18 +90,22 @@
 
 <img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/20160131_165812.jpg?sanitize=true&raw=true">
 
+<p>It can be helpful to use a little PCB board to attach the MOSFETs to. The image above was my first attempt. I ended up redoing this part, and not using a PCB. Instead I just used solder, wire, and heat shrink to save a little space.</p>
+
+<p>You might notice that in the picture above, I'm also using the 12v power source to power the Raspberry Pi. The Raspberry Pi can accept 5v power into the GPIO interface. How do we step down from 12v to 5v? We can use a 12v to 5v UBEC. This accepts a 12v source, and outputs a 5v current. This step is optional, you could just use a normal 5v power supply, but I wanted to only have one cable going into the terrarium</p>
+
 <img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/20160201_110614.jpg?sanitize=true&raw=true">
 
+<p>I chose to mount the LED strips on small pieces of aluminium to dissipate the heat a little from the LEDs. It also made installation a little easier.</p>
+
 <img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/20160228_182740.jpg?sanitize=true&raw=true">
+
+<p>As you can see, it's a tight fit. I would probably use a smaller Raspberry Pi now, however when I built this, this was the smallest model</p>
 
 <img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/20160221_195231.jpg?sanitize=true&raw=true">
 
 <img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/DSC00011.JPG?sanitize=true&raw=true">
 
-
-<p>It can be helpful to use a little PCB board to attach the MOSFETs to. The image above was my first attempt. I ended up redoing this part, and not using a PCB. Instead I just used solder, wire, and heat shrink to save a little space.</p>
-
-<p>You might notice that in the picture above, I'm also using the 12v power source to power the Raspberry Pi. The Raspberry Pi can accept 5v power into the GPIO interface. How do we step down from 12v to 5v? We can use a 12v to 5v UBEC. This accepts a 12v source, and outputs a 5v current. This step is optional, you could just use a normal 5v power supply, but I wanted to only have one cable going into the terrarium</p>
 
 </div>
 <div class="parallax-window"
