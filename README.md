@@ -96,11 +96,7 @@
 
 <img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/20160201_110614.jpg?sanitize=true&raw=true">
 
-<p>I chose to mount the LED strips on small pieces of aluminium to dissipate the heat a little from the LEDs. It also made installation a little easier.</p>
-
 <img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/20160228_182740.jpg?sanitize=true&raw=true">
-
-<p>As you can see, it's a tight fit. I would probably use a smaller Raspberry Pi now, however when I built this, this was the smallest model</p>
 
 <img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/20160221_195231.jpg?sanitize=true&raw=true">
 
