@@ -1,7 +1,6 @@
 import sys
 import config
 import time, datetime, pigpio
-from datetime import timedelta
 import argparse
 import ephem
 
@@ -64,6 +63,10 @@ class Main():
             self._get_sunrise_sunset(self.demo_time)
             # Go to the start of Sunset
             self.demo_time = self.sunrise - datetime.timedelta(0, config.sunrise_colour_map.keys()[0])
+        else:
+            if config.ENABLE_DB:
+                print "Building DB if required"
+                database.build_tables()
 
         #try:
         while True:
@@ -115,9 +118,6 @@ class Main():
 
 
             self.sunrise = ephem.localtime(o.next_rising(s))
-
-            self.sunrise += timedelta(hours=1) # Terrarium was bright too early. Sunrise calculation may be slightly out, potentially an issue with how Sunrise is calculated versus what a person on the ground sees. IE Actual Astronomical Sunrise may be calculated from the moment the sun is in position, rather than when the sunrise looks to be happening.
-
             self.sunset = ephem.localtime(o.next_setting(s))
 
             print "Date: " , ephem.localtime(o.date)

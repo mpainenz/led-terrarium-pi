@@ -23,6 +23,9 @@ night_colour = [0, 100, 100, 0]
 
 # Sunset/Sunrise RGB & White LED Colour values over time
 #             Time (Seconds)    R,  G,  B,  W
+
+# 60 = 1 Minute
+# 3600 = 1 hour
 sunrise_colour_map = {  3600: night_colour,
                         3000: [  0,  50, 100,  15],  #Dim Blue
                         2400: [100,  30,  30,  30],  #Neutral
