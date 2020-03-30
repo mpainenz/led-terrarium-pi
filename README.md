@@ -122,7 +122,7 @@
 
 <h2 id="led-terrarium-pi">Pulse Width Modulation</h2>
 
-<p>Feel free to skip this section if you want, I've handled this in the code so you don't really need to understand this part. But if you are interested, what we can do is quickly alternate the output 3.3v signal on and off many times a second. We can then have the software turn that signal on for longer, or off for longer, depending on what volate we want to try and emulate.</p>
+<p>Feel free to skip this section if you want, I've handled this in the code so you don't really need to understand this part. But if you are interested, what we can do is quickly alternate the output 3.3v signal on and off many times a second. We can then have the software turn that signal on for longer, or off for longer, depending on what voltage we want to try and emulate.</p>
 
 <p align="center">
 <img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/pwm2.jpg?sanitize=true&raw=true">
@@ -141,7 +141,7 @@
 
 <p>Now that the hard part is done, putting the terrarium together can start. For mine, I chose to try and build a closed terrarium and grow mosses, lichens, and other moisture loving plants.</p>
 
-<p>To create a healthy enviroment for the plants, it's useful to create a area in the bottom of the container which contains either spagnum moss, or charcoal. My understanding is that this can help to prevent toxic compounds from lingering in the bottom where the water drains. It will help to prevent the envirment in the soil turning anaerobic, and will be more beneficial to the health of the overall system</p>
+<p>To create a healthy enviroment for the plants, it's useful to create an area in the bottom of the container which contains either spagnum moss, or charcoal. My understanding is that this can help to prevent toxic compounds from lingering in the bottom where the water drains. It will help to prevent the envirment in the soil turning anaerobic, and will be more beneficial to the health of the overall system</p>
 
 <p>For my terrarium, I used...</p>
   
@@ -172,7 +172,7 @@
 <img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/20160312_165603.jpg?sanitize=true&raw=true">
 </p>
 
-<p>And on top of that, a combination of Spagnum Moss and crushed Charcoal (be sure not to use any charcoal that might have a checmical accelerant added to it to help it burn faster)</p>
+<p>And on top of that, a combination of Spagnum Moss and crushed Charcoal (be sure not to use any charcoal that might have a chemical accelerant added to it to help it burn faster)</p>
 
 <p align="center">
 <img src="https://github.com/mpainenz/led-terrarium-pi/blob/master/assets/img/20160312_170434.jpg?sanitize=true&raw=true">
@@ -222,7 +222,7 @@
 
 <p>Python Libraries</p>
 <ul>
-  <li>ephem (Astronomical library to work out Sunrise/Sunset) - <code class="highlighter-rouge">sudo pip install emphem</code></li>
+  <li>ephem (Astronomical library to work out Sunrise/Sunset) - <code class="highlighter-rouge">sudo pip install ephem</code></li>
 </ul>
 
 
