@@ -226,7 +226,7 @@
 </ul>
 
 
-<p>To install my light controller script, simply copy the main.py and config.py files to a directory of the Raspberry Pi, and type the following commands</p>
+<p>To install my light controller script, simply copy the main.py, terrarium_lights.py, and config.py files to a directory of the Raspberry Pi, and type the following commands</p>
 
 <code class="highlighter-rouge">pigpiod</code>
 
